@@ -6,33 +6,65 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 22:06:15 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/05 22:42:45 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/10/12 04:51:05 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// Contact.hpp
-#ifndef CONTACT_HPP
-#define CONTACT_HPP
+#include "Contact.hpp"
+#include <iostream>
 
-#include <string>
+Contact::Contact()
+{
+}
 
-class Contact {
-private:
-    std::string firstName;
-    std::string lastName;
-    std::string nickname;
-    std::string phoneNumber;
-    std::string darkestSecret;
+Contact::~Contact()
+{
+}
+void Contact::setFirstName(const std::string& fname)
+{
+    this->firstName = fname;
+}
 
-public:
-    Contact();
-    void setContact(const std::string& fname, const std::string& lname, 
-                    const std::string& nname, const std::string& phone, 
-                    const std::string& secret);
-    std::string getFirstName() const;
-    std::string getLastName() const;
-    std::string getNickname() const;
-    void displayContact() const;
-};
+void Contact::setLastName(const std::string& lname)
+{
+    this->lastName = lname;
+}
 
-#endif
+void Contact::setNickname(const std::string& nname)
+{
+    this->nickName = nname;
+}
+
+void Contact::setPhoneNumber(const std::string& phone)
+{
+    this->phoneNumber = phone;
+}
+
+void Contact::setDarkestSecret(const std::string& secret)
+{
+    this->darkestSecret = secret;
+}
+
+std::string Contact::getFirstName() const 
+{
+	return (this->firstName);
+}
+
+std::string Contact::getLastName() const 
+{
+	return (this->lastName);
+}
+
+std::string Contact::getNickname() const
+{
+	return (this->nickName);
+}
+
+void Contact::displayContact() const
+{
+	std::cout << "First Name: " << this->firstName << std::endl;
+	std::cout << "Last Name: " << this->lastName << std::endl;
+	std::cout << "Nickname: " << this->nickName << std::endl;
+	std::cout << "Phone Number: " << this->phoneNumber << std::endl;
+	std::cout << "Darkest Secret: " << this->darkestSecret << std::endl;
+}

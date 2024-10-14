@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 19:26:45 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/10 20:46:30 by mregrag          ###   ########.fr       */
+/*   Created: 2024/10/10 17:44:44 by mregrag           #+#    #+#             */
+/*   Updated: 2024/10/14 05:22:53 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Replace.hpp"
 #include <iostream>
-#include <string>
-#include <cctype>
 
-
-int main(int argc, char **argv) {
-
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else 
+int main(int argc, char* argv[])
+{
+	if (argc != 4)
 	{
-		for (int i = 1; i < argc; i++)
-		{
-			std::string arg(argv[i]);
-			for (size_t j = 0; j < arg.length(); j++)
-				std::cout << (char)std::toupper(arg[j]);
-		}
-		std::cout << std::endl;
+		std::cerr << "Usage: " << argv[0] << " <filename> <s1> <s2>" << std::endl;
+		return 1;
 	}
+
+	std::string filename = argv[1];
+	std::string s1 = argv[2];
+	std::string s2 = argv[3];
+	Replace replace(filename, s1, s2);
+	replace.execute();
 	return (0);
 }
-

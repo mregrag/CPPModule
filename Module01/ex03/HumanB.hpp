@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 22:05:58 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/12 23:27:07 by mregrag          ###   ########.fr       */
+/*   Created: 2024/10/09 23:54:23 by mregrag           #+#    #+#             */
+/*   Updated: 2024/10/10 16:49:51 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
-#include "Contact.hpp"
+#include "Weapon.hpp"
+#include <string>
 
-class PhoneBook
+class HumanB
 {
 	private:
-		Contact contacts[8];
-		std::string getInfo(const std::string& prompt, int info);
-		std::string Truncate(const std::string& str, size_t maxLength);
-		bool isDigitsOnly(const std::string& str);
-		int count;
-		int index;
-
+		std::string name;
+		Weapon	*weapon;
 	public:
-		PhoneBook();
-		~PhoneBook();
-		void addContact();
-		void searchContact();
-		void displayAllContacts();
+		HumanB(const std::string& name);
+		void attack() const;
+		void setWeapon(Weapon &weapon);
 };
 
-#endif
+#endif // !HUMANA_HPP
+

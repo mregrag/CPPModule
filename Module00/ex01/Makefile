@@ -6,14 +6,13 @@
 #    By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/05 19:25:55 by mregrag           #+#    #+#              #
-#    Updated: 2024/10/05 22:10:08 by mregrag          ###   ########.fr        #
+#    Updated: 2024/10/12 22:05:26 by mregrag          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
 CC	= c++
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
-NAME	= megaphone
+CFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g2
+NAME	= phonebook
 RM 	= rm -f
 
 SRCS	= PhoneBook.cpp Contact.cpp main.cpp
@@ -24,7 +23,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp Contact.hpp PhoneBook.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

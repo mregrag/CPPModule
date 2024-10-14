@@ -5,17 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/05 19:26:09 by mregrag           #+#    #+#              #
-#    Updated: 2024/10/07 23:16:16 by mregrag          ###   ########.fr        #
+#    Created: 2024/10/09 22:22:01 by mregrag           #+#    #+#              #
+#    Updated: 2024/10/09 22:57:41 by mregrag          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC	= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
-NAME	= job
+NAME	= zombie
 RM 	= rm -f
 
-SRCS	= Account.cpp tests.cpp
+SRCS	= main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 OBJS	= $(SRCS:.cpp=.o)
 
 all: $(NAME)

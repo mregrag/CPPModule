@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 22:05:58 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/12 23:27:07 by mregrag          ###   ########.fr       */
+/*   Created: 2024/10/12 04:54:10 by mregrag           #+#    #+#             */
+/*   Updated: 2024/10/12 05:34:43 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
-#include "Contact.hpp"
-
-class PhoneBook
+class Fixed
 {
 	private:
-		Contact contacts[8];
-		std::string getInfo(const std::string& prompt, int info);
-		std::string Truncate(const std::string& str, size_t maxLength);
-		bool isDigitsOnly(const std::string& str);
-		int count;
-		int index;
+		int value;
+		static const int fractionalBits = 8;
 
 	public:
-		PhoneBook();
-		~PhoneBook();
-		void addContact();
-		void searchContact();
-		void displayAllContacts();
-};
+		Fixed();
+		Fixed(const Fixed& other);
+		Fixed &operator=(const Fixed& other);
+		~Fixed();
 
-#endif
+		int	getRawBits(void) const;
+		void	setRawBits(int const raw);
+};
+#endif // !FIXED_HPP

@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 22:06:50 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/05 22:45:06 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/10/12 04:09:03 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,25 @@
 
 #include <string>
 
-class Contact {
+class Contact
+{
 	private:
 		std::string firstName;
 		std::string lastName;
-		std::string nickname;
+		std::string nickName;
 		std::string phoneNumber;
 		std::string darkestSecret;
 
 	public:
 		Contact();
-		void setContact(const std::string& fname, const std::string& lname, 
-				const std::string& nname, const std::string& phone, 
-				const std::string& secret);
+		~Contact();
+
+		void	setFirstName(const std::string& fname);
+		void	setLastName(const std::string& fname);
+		void	setNickname(const std::string& nname);
+		void	setPhoneNumber(const std::string& phone);
+		void	setDarkestSecret(const std::string& secret);
+
 		std::string getFirstName() const;
 		std::string getLastName() const;
 		std::string getNickname() const;

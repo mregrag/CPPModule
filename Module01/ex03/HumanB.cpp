@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 19:26:45 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/10 20:46:30 by mregrag          ###   ########.fr       */
+/*   Created: 2024/10/09 23:54:08 by mregrag           #+#    #+#             */
+/*   Updated: 2024/10/14 04:43:48 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "HumanB.hpp"
 #include <iostream>
-#include <string>
-#include <cctype>
 
+HumanB::HumanB(const std::string& name) : name(name), weapon(nullptr) {}
 
-int main(int argc, char **argv) {
-
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else 
-	{
-		for (int i = 1; i < argc; i++)
-		{
-			std::string arg(argv[i]);
-			for (size_t j = 0; j < arg.length(); j++)
-				std::cout << (char)std::toupper(arg[j]);
-		}
-		std::cout << std::endl;
-	}
-	return (0);
+void HumanB::setWeapon(Weapon& weapon)
+{
+    this->weapon = &weapon;
 }
 
+void HumanB::attack() const 
+{
+    if (this->weapon)
+        std::cout << this->name << " attacks with their " << this->weapon->getType() << std::endl;
+    else 
+        std::cout << this->name << " has no weapon to attack with" << std::endl;
+}

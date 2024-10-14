@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 22:05:58 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/12 23:27:07 by mregrag          ###   ########.fr       */
+/*   Created: 2024/10/14 06:25:22 by mregrag           #+#    #+#             */
+/*   Updated: 2024/10/14 06:32:24 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef HARL_HPP
+# define HARL_HPP
 
-#include "Contact.hpp"
+#include <string>
+#include <iostream>
 
-class PhoneBook
+class Harl 
 {
 	private:
-		Contact contacts[8];
-		std::string getInfo(const std::string& prompt, int info);
-		std::string Truncate(const std::string& str, size_t maxLength);
-		bool isDigitsOnly(const std::string& str);
-		int count;
-		int index;
-
+		void debug(void);
+		void info(void);
+		void warning(void);
+		void error(void);
+		int  getLevelIndex(const std::string &level);
 	public:
-		PhoneBook();
-		~PhoneBook();
-		void addContact();
-		void searchContact();
-		void displayAllContacts();
+		void complain(const std::string& level);
 };
 
 #endif

@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Replace.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 22:05:58 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/12 23:27:07 by mregrag          ###   ########.fr       */
+/*   Created: 2024/10/10 18:23:01 by mregrag           #+#    #+#             */
+/*   Updated: 2024/10/10 18:23:26 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef REPLACE_HPP
+# define REPLACE_HPP
 
-#include "Contact.hpp"
+#include <string>
 
-class PhoneBook
+class Replace
 {
 	private:
-		Contact contacts[8];
-		std::string getInfo(const std::string& prompt, int info);
-		std::string Truncate(const std::string& str, size_t maxLength);
-		bool isDigitsOnly(const std::string& str);
-		int count;
-		int index;
+		std::string filename;
+		std::string s1;
+		std::string s2;
+
+		std::string replaceLine(const std::string& line) const;
 
 	public:
-		PhoneBook();
-		~PhoneBook();
-		void addContact();
-		void searchContact();
-		void displayAllContacts();
+		Replace(const std::string& filename, const std::string& s1, const std::string& s2);
+		void execute() const;
 };
 
 #endif
