@@ -18,7 +18,6 @@
 
 class Account {
 
-
 public:
 
 	typedef Account		t;
@@ -27,6 +26,7 @@ public:
 	static int	getTotalAmount( void );
 	static int	getNbDeposits( void );
 	static int	getNbWithdrawals( void );
+	
 	static void	displayAccountsInfos( void );
 
 	Account( int initial_deposit );
@@ -52,7 +52,6 @@ private:
 	int				_nbWithdrawals;
 
 	Account( void );
-
 };
 
 

@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 23:14:24 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/13 22:59:50 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/10/22 04:00:16 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,9 +120,8 @@ void    Account::displayStatus(void) const
 
 void    Account::_displayTimestamp(void)
 {
-	time_t		timet;
+	time_t		tm;
 
-	std::time(&timet);
-	std::cout << "[";
-	std::cout << std::put_time(localtime(&timet), "%Y%m%d_%H%M%S") << "] ";
+	std::time(&tm);
+	std::cout << "[" << std::put_time(localtime(&tm), "%Y%m%d_%H%M%S") << "] ";
 }

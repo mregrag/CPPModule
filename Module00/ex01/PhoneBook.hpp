@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 22:05:58 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/12 23:27:07 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/10/21 06:20:14 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 # define PHONEBOOK_HPP
 
 #include "Contact.hpp"
+#include <iostream>
+#include <iomanip>
 
 class PhoneBook
 {
 	private:
 		Contact contacts[8];
-		std::string getInfo(const std::string& prompt, int info);
-		std::string Truncate(const std::string& str, size_t maxLength);
-		bool isDigitsOnly(const std::string& str);
+		std::string getInfo(const std::string& prompt, int info) const;
+		std::string Truncate(const std::string& str) const;
+		bool isDigitsOnly(const std::string& str) const;
 		int count;
 		int index;
 
@@ -29,8 +31,8 @@ class PhoneBook
 		PhoneBook();
 		~PhoneBook();
 		void addContact();
-		void searchContact();
-		void displayAllContacts();
+		void searchContact() const;
+		void displayAllContacts() const;
 };
 
 #endif
