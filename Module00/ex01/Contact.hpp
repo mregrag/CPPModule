@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 22:06:50 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/21 05:09:57 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/10/24 01:21:28 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class Contact
 		std::string nickName;
 		std::string phoneNumber;
 		std::string darkestSecret;
-
 	public:
 		Contact();
 		~Contact();
@@ -35,10 +34,10 @@ class Contact
 		void	setPhoneNumber(const std::string& phone);
 		void	setDarkestSecret(const std::string& secret);
 
-		std::string getFirstName() const;
-		std::string getLastName() const;
-		std::string getNickname() const;
-		void displayContact() const;
+		std::string getFirstName(void) const;
+		std::string getLastName(void) const;
+		std::string getNickname(void) const;
+		void displayContact(void) const;
 };
 
 #endif

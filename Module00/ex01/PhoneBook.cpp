@@ -6,11 +6,13 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +j#+           */
 /*   Created: 2024/10/05 22:05:29 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/21 06:37:26 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/10/24 01:23:13 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <iostream>
+#include <iomanip>
 
 PhoneBook::PhoneBook() : count(0), index(0)
 {
@@ -37,10 +39,15 @@ std::string PhoneBook::getInfo(const std::string& prompt, int info) const
 		std::cout << prompt << ": ";
 		if (!std::getline(std::cin, input))
 			return ("");
-		if (info == 4 && (input.empty() || !isDigitsOnly(input)))
+		if (info == 4)
 		{
-			std::cout << "\033[31mError: Phone number must be only digits.\033[0m" << std::endl;
-			continue;
+			if (input.empty())
+				continue;
+			else if (!isDigitsOnly(input))
+			{
+				std::cout << "\033[31mError: Phone number must be only digits.\033[0m" << std::endl;
+				continue;
+			}
 		}
 		if (input.empty())
 			continue;
@@ -58,7 +65,7 @@ bool PhoneBook::isDigitsOnly(const std::string& str) const
 	return (true);
 }
 
-void PhoneBook::addContact()
+void PhoneBook::addContact(void)
 {
 	std::string firstName = getInfo("First Name", 1);
 	if (firstName.empty())
@@ -87,13 +94,14 @@ void PhoneBook::addContact()
 	this->contacts[this->index % 8].setDarkestSecret(darkestSecret);
 
 	this->index++;
+	if (this->index == 8)
+		this->index = 0;
 	if (count < 8)
 		this->count++;
 	std::cout << "\033[32mContact added successfully.\033[0m" << std::endl;
 }
 
-
-void PhoneBook::searchContact() const
+void PhoneBook::searchContact(void) const
 {
 	if (count == 0)
 	{
@@ -108,15 +116,15 @@ void PhoneBook::searchContact() const
 		std::cout << "Enter the index of the contact: ";
 		if (!std::getline(std::cin, input))
 			return ;
-		if (input.length() > 1 || !isDigitsOnly(input))
+		if (input.empty())
+			continue;
+		index = (input[0] - 48) - 1;
+		if (index > 7 || index < 0)
 		{
 			std::cout << "Invalid index" << std::endl;
 			continue;
 		}
-		if (input.empty())
-			continue;
-		index = (input[0] - 48) - 1;
-		if (index >= this->count || index < 0)
+		else if (!(index < this->count && index >= 0))
 		{
 			std::cout << "Contact not found" << std::endl;
 			continue;
@@ -126,10 +134,10 @@ void PhoneBook::searchContact() const
 	contacts[index].displayContact();
 }
 
-void PhoneBook::displayAllContacts() const
+void PhoneBook::displayAllContacts(void) const
 {
 	std::cout << std::string(44, '-') << std::endl;
-	std::cout << std::setw(10)  << "Index" << "|"
+	std::cout << std::setw(10) << "Index" << "|"
 		<< std::setw(10) << "First Name" << "|"
 		<< std::setw(10) << "Last Name" << "|"
 		<< std::setw(10) << "Nickname" << "|" << std::endl;
@@ -143,4 +151,5 @@ void PhoneBook::displayAllContacts() const
 		std::cout << std::setw(10) << std::right << Truncate(contacts[i].getNickname())<< "|";
 		std::cout << std::endl;
 	}
+	std::cout << std::string(44, '-') << std::endl;
 }

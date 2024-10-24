@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 22:06:15 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/21 05:09:47 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/10/24 01:21:55 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Contact::Contact()
 Contact::~Contact()
 {
 }
+
 void Contact::setFirstName(const std::string& fname)
 {
     this->firstName = fname;
@@ -45,22 +46,22 @@ void Contact::setDarkestSecret(const std::string& secret)
     this->darkestSecret = secret;
 }
 
-std::string Contact::getFirstName() const 
+std::string Contact::getFirstName(void) const 
 {
 	return (this->firstName);
 }
 
-std::string Contact::getLastName() const 
+std::string Contact::getLastName(void) const 
 {
 	return (this->lastName);
 }
 
-std::string Contact::getNickname() const
+std::string Contact::getNickname(void) const
 {
 	return (this->nickName);
 }
 
-void Contact::displayContact() const
+void Contact::displayContact(void) const
 {
 	std::cout << "First Name: " << this->firstName << std::endl;
 	std::cout << "Last Name: " << this->lastName << std::endl;

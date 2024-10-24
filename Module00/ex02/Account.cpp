@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 23:14:24 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/22 04:00:16 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/10/24 01:37:35 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 #include <iostream>
 #include <iomanip>
 
-int Account::_nbAccounts = 0;         // Tracks the total number of accounts created
-int Account::_totalAmount = 0;        // Tracks the total amount of money across all accounts
-int Account::_totalNbDeposits = 0;    // Tracks the total number of deposits made across all accounts
-int Account::_totalNbWithdrawals = 0; // Tracks the total number of withdrawals made across all accounts
+int Account::_nbAccounts = 0;
+int Account::_totalAmount = 0;
+int Account::_totalNbDeposits = 0;
+int Account::_totalNbWithdrawals = 0;
 
 int  Account::getNbAccounts(void)
 {

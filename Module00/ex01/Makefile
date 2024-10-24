@@ -6,12 +6,12 @@
 #    By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/05 19:25:55 by mregrag           #+#    #+#              #
-#    Updated: 2024/10/12 22:05:26 by mregrag          ###   ########.fr        #
+#    Updated: 2024/10/24 02:22:31 by mregrag          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC	= c++
-CFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g2
+CFLAGS	= -Wall -Wextra -Werror -std=c++98
 NAME	= phonebook
 RM 	= rm -f
 
@@ -34,5 +34,5 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: clean
 

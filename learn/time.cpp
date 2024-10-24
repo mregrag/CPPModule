@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 03:38:56 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/22 04:14:03 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/10/23 03:33:08 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,22 @@
 #include <iostream>
 #include <iomanip>
 
-int main (void)
+class Rectangle
 {
-	time_t	t;
+    private:
+        int width;
+        int height;
+    public:
+	typedef Rectangle Rect;
+        Rectangle(int w, int h) : width(w), height(h) {}
+        int getArea() { return width * height; }
+};
 
-	std::time(&t);
-	
-	std::cout << t << std::endl;
-	std::cout << "[" << std::put_time(localtime(&t), "%Y%m%d_%H%M%S") << "] ";
-	return (0);
+// Creating a typedef for Rectangle class
+
+int main() {
+    // Now we can use 'Rect' instead of 'Rectangle'
+	Rectangle::Rect r1(5, 3);    // Same as Rectangle r1(5, 3);
+    
+    return 0;
 }
