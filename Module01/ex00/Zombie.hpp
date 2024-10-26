@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 22:23:00 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/14 01:43:44 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/10/25 04:15:42 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define ZOMBIE_HPP
 
 #include <string>
-#include <iostream>
 
 class Zombie
 {

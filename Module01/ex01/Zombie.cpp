@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 23:09:24 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/14 02:35:27 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/10/26 00:45:59 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,3 @@ void Zombie::announce()
 {
     std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
-
