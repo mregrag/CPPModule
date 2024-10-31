@@ -5,15 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 22:34:36 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/14 00:39:59 by mregrag          ###   ########.fr       */
+/*   Created: 2024/10/26 14:50:08 by mregrag           #+#    #+#             */
+/*   Updated: 2024/10/31 10:52:22 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-void randomChump(std::string name)
+void	randomChump(std::string name)
 {
-	Zombie	zombie(name);
+	Zombie zombie(name);
+
 	zombie.announce();
 }

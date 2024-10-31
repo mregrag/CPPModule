@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/10 18:26:34 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/14 05:42:57 by mregrag          ###   ########.fr       */
+/*   Created: 2024/10/26 22:25:04 by mregrag           #+#    #+#             */
+/*   Updated: 2024/10/28 17:13:03 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 # define HARL_HPP
 
 #include <string>
-#include <iostream>
 
-class Harl 
+class Harl
 {
 	private:
 		void debug(void);
@@ -24,6 +23,8 @@ class Harl
 		void warning(void);
 		void error(void);
 	public:
+		Harl();
+		~Harl();
 		void complain(std::string level);
 };
 

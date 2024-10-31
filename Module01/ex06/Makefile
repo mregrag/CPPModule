@@ -5,11 +5,10 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/14 06:25:10 by mregrag           #+#    #+#              #
-#    Updated: 2024/10/14 06:28:29 by mregrag          ###   ########.fr        #
+#    Created: 2024/10/26 22:41:18 by mregrag           #+#    #+#              #
+#    Updated: 2024/10/30 17:47:56 by mregrag          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 CC	= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
@@ -24,7 +23,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp Harl.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
@@ -35,8 +34,5 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
-
-
-
+.PHONY: clean
 

@@ -5,25 +5,25 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/09 23:51:38 by mregrag           #+#    #+#              #
-#    Updated: 2024/10/14 03:52:12 by mregrag          ###   ########.fr        #
+#    Created: 2024/10/26 17:36:26 by mregrag           #+#    #+#              #
+#    Updated: 2024/10/26 19:17:01 by mregrag          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC	= c++
-CFLAGS	= -Wall -Wextra -Werror -std=c++98 -g
-NAME	= violence
+CFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+NAME	= voilence
 RM 	= rm -f
 
-SRCS	= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRCS	= main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 OBJS	= $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) 
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp HumanA.hpp HumanB.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
@@ -34,7 +34,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
-
-
-
+.PHONY: clean

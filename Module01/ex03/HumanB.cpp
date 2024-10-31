@@ -5,25 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 23:54:08 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/20 22:00:41 by mregrag          ###   ########.fr       */
+/*   Created: 2024/10/26 17:37:42 by mregrag           #+#    #+#             */
+/*   Updated: 2024/10/30 18:24:40 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "HumanB.hpp"
 #include <iostream>
 
-HumanB::HumanB(const std::string& name) : name(name), weapon(nullptr) {}
-
-void HumanB::setWeapon(Weapon& weapon)
+HumanB::HumanB(const std::string& name) : name (name) , weapon(NULL)
 {
-    this->weapon = &weapon;
 }
 
-void HumanB::attack() const 
+HumanB::~HumanB()
 {
-    if (this->weapon)
-        std::cout << this->name << " attacks with their " << this->weapon->getType() << std::endl;
-    else 
-        std::cout << this->name << " has no weapon to attack with" << std::endl;
+}
+
+void HumanB::attack()
+{
+	if (weapon)
+		std::cout << this->name << " attacks with their " << this->weapon->getType() << std::endl;
+	else 
+		std::cout << this->name << " has no weapon to attack with" << std::endl;
+}
+
+void HumanB::setWeapon(Weapon &weapon)
+{
+	this->weapon = &weapon;
 }

@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 22:34:17 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/14 00:25:20 by mregrag          ###   ########.fr       */
+/*   Created: 2024/10/26 14:49:52 by mregrag           #+#    #+#             */
+/*   Updated: 2024/10/26 16:11:58 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie* newZombie(std::string name )
+Zombie*	newZombie(std::string name)
 {
 	return (new Zombie(name));
 }

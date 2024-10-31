@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 23:53:11 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/10 17:42:40 by mregrag          ###   ########.fr       */
+/*   Created: 2024/10/26 17:37:53 by mregrag           #+#    #+#             */
+/*   Updated: 2024/10/31 12:13:11 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 # define HUMANA_HPP
 
 #include "Weapon.hpp"
-#include <string>
 
-class HumanA
+class	HumanA
 {
 	private:
 		std::string name;
 		Weapon&	weapon;
 	public:
 		HumanA(const std::string& name, Weapon& weapon);
-		void attack() const;
+		~HumanA();
+		void	attack();
 };
 
-#endif // !HUMANA_HPP
+#endif
+

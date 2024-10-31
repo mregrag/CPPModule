@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 23:39:31 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/09 23:50:37 by mregrag          ###   ########.fr       */
+/*   Created: 2024/10/26 17:28:22 by mregrag           #+#    #+#             */
+/*   Updated: 2024/10/31 12:09:36 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int main (void)
 	std::string* stringPTR = &string;
 	std::string& stringREF = string;
 
-	std::cout << "The value of the string variable : " << string << &string << std::endl;
-	std::cout << "The value pointed to by stringPTR: " << *stringPTR << stringPTR << std::endl;
-	std::cout << "The value pointed to by stringREF: " << stringREF << &stringREF << std::endl;
+	std::cout << string << std::endl;
+	std::cout << *stringPTR << std::endl;
+	std::cout << stringREF << std::endl;
 
 	return (0);
 }

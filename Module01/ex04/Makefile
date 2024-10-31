@@ -5,25 +5,25 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/10 17:44:05 by mregrag           #+#    #+#              #
-#    Updated: 2024/10/14 05:04:25 by mregrag          ###   ########.fr        #
+#    Created: 2024/10/26 20:55:40 by mregrag           #+#    #+#              #
+#    Updated: 2024/10/26 21:41:07 by mregrag          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC	= c++
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
-NAME	= replace
+CFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+NAME	= losers
 RM 	= rm -f
 
-SRCS	= main.cpp Replace.cpp
+SRCS	= main.cpp FileReplace.cpp
 OBJS	= $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) 
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp HumanA.hpp HumanB.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
@@ -34,4 +34,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: clean

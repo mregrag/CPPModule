@@ -5,12 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/14 06:25:31 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/14 06:40:18 by mregrag          ###   ########.fr       */
+/*   Created: 2024/10/26 22:41:53 by mregrag           #+#    #+#             */
+/*   Updated: 2024/10/31 14:39:22 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
+#include <iostream>
+
+Harl::Harl()
+{
+}
+
+Harl::~Harl()
+{
+}
 
 void Harl::debug(void)
 {
@@ -21,13 +30,13 @@ void Harl::debug(void)
 void Harl::info(void)
 {
 	std::cout << "[ INFO ]" << std::endl;
-	std::cout << " cannot believe adding extra bacon costs more money. You didn’t putenough bacon in my burger! If you did, I wouldn’t be asking for more!" << std::endl;
+	std::cout << "I cannot believe adding extra bacon costs more money. You didn't put enough bacon in my burger! If you did, I wouldn't be asking for more!" << std::endl;
 }
 
 void Harl::warning(void)
 {
 	std::cout << "[ WARNING ]" << std::endl;
-	std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month" << std::endl;
+	std::cout << "I think I deserve to have some extra bacon for free. I've been coming for years whereas you started working here since last month." << std::endl;
 }
 
 void Harl::error(void)
@@ -38,33 +47,33 @@ void Harl::error(void)
 
 int Harl::getLevelIndex(const std::string &level)
 {
-    if (level == "DEBUG")
-	    return (0);
-    if (level == "INFO")
-	    return (1);
-    if (level == "WARNING")
-	    return (2);
-    if (level == "ERROR")
-	    return (3);
-    return (-1);
+	if (level == "DEBUG")
+		return (0);
+	if (level == "INFO")
+		return (1);
+	if (level == "WARNING")
+		return (2);
+	if (level == "ERROR")
+		return (3);
+	return (-1);
 }
 
-void Harl::complain(const std::string &level)
+void Harl::complain(const std::string& level)
 {
-    int index = getLevelIndex(level);
+	int levelIndex = getLevelIndex(level);
 
-    switch (index)
-    {
-        case (0):
-            debug();
-        case (1):
-            info();
-        case (2):
-            warning();
-        case (3):
-            error();
-            break;
-        default:
-            std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-    }
+	switch (levelIndex)
+	{
+		case (0):
+			this->debug();
+		case (1):
+			this->info();
+		case (2):
+			this->warning();
+		case (3):
+			this->error();
+			break;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+	}
 }

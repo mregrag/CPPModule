@@ -5,12 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/10 18:26:20 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/10 19:02:32 by mregrag          ###   ########.fr       */
+/*   Created: 2024/10/26 22:24:47 by mregrag           #+#    #+#             */
+/*   Updated: 2024/10/30 16:52:03 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "Harl.hpp"
+#include <iostream>
+
+Harl::Harl()
+{
+}
+
+Harl::~Harl()
+{
+}
 
 void Harl::debug(void)
 {
@@ -21,13 +31,13 @@ void Harl::debug(void)
 void Harl::info(void)
 {
 	std::cout << "[ INFO ]" << std::endl;
-	std::cout << " cannot believe adding extra bacon costs more money. You didn’t putenough bacon in my burger! If you did, I wouldn’t be asking for more!" << std::endl;
+	std::cout << "I cannot believe adding extra bacon costs more money. You didn't put enough bacon in my burger! If you did, I wouldn't be asking for more!" << std::endl;
 }
 
 void Harl::warning(void)
 {
 	std::cout << "[ WARNING ]" << std::endl;
-	std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month" << std::endl;
+	std::cout << "I think I deserve to have some extra bacon for free. I've been coming for years whereas you started working here since last month." << std::endl;
 }
 
 void Harl::error(void)
@@ -38,17 +48,15 @@ void Harl::error(void)
 
 void Harl::complain(std::string level)
 {
-	void (Harl::*complaints[])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-
-	std::string levels[] = { "DEBUG", "INFO", "WARNING", "ERROR" };
+	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	void (Harl::*funcPtr[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
 	for (int i = 0; i < 4; i++)
 	{
 		if (level == levels[i])
 		{
-			(this->*complaints[i])();
+			(this->*funcPtr[i])();
 			break;
 		}
 	}
-	std::cout << "Unknown complaint level: " << level << std::endl;
 }

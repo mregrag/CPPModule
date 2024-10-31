@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 22:23:00 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/25 04:15:42 by mregrag          ###   ########.fr       */
+/*   Created: 2024/10/26 14:49:21 by mregrag           #+#    #+#             */
+/*   Updated: 2024/10/26 15:55:27 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,17 @@
 
 #include <string>
 
-class Zombie
+class	Zombie
 {
 	private:
 		std::string name;
-
 	public:
 		Zombie(std::string name);
 		~Zombie();
-		void announce(void);
-		
+		void	announce(void);
 };
 
-Zombie* newZombie(std::string name );
-void randomChump(std::string name);
+Zombie*	newZombie(std::string name);
+void	randomChump(std::string name);
 
-#endif
+#endif // !ZOMBIE_HPP
