@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/12 07:07:26 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/12 07:10:39 by mregrag          ###   ########.fr       */
+/*   Created: 2024/11/02 16:53:04 by mregrag           #+#    #+#             */
+/*   Updated: 2024/11/17 21:07:38 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,14 @@
 class Point
 {
 	private:
-		Fixed const x;
-		Fixed const y;
-
+		const Fixed x;
+		const Fixed y;
 	public:
-		Point();  // Default constructor
-		Point(const float x, const float y);  // Float constructor
-		Point(const Point &other);  // Copy constructor
-		Point &operator=(const Point &other);  // Copy assignment operator
-		~Point();  // Destructor
+		Point();
+		Point(const float x, const float y);
+		Point(const Point& rhs);
+		Point& operator=(const Point& rhs);
+		~Point();
 
 		Fixed getX() const;
 		Fixed getY() const;

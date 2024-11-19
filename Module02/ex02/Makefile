@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/12 06:54:34 by mregrag           #+#    #+#              #
-#    Updated: 2024/10/12 07:03:10 by mregrag          ###   ########.fr        #
+#    Created: 2024/11/02 16:40:39 by mregrag           #+#    #+#              #
+#    Updated: 2024/11/18 20:55:43 by mregrag          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,4 +34,3 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re

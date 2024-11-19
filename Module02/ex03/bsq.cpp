@@ -5,34 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/12 07:11:18 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/12 07:11:59 by mregrag          ###   ########.fr       */
+/*   Created: 2024/11/02 16:53:50 by mregrag           #+#    #+#             */
+/*   Updated: 2024/11/17 23:32:10 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
-// Function to calculate the area of a triangle
-static Fixed area(Point const &a, Point const &b, Point const &c)
+static Fixed calculArea(Point const& a, Point const& b, Point const& c)
 {
-	return ((b.getX() - a.getX()) * (c.getY() - a.getY()) - (c.getX() - a.getX()) * (b.getY() - a.getY())).abs() / 2;
+	Fixed Area;
+	Area = ((b.getX() - a.getX()) * (c.getY() - a.getY()) - (b.getY() - a.getY()) * (c.getX() - a.getX())) / Fixed(2);
+
+	if (Area.getRawBits() > 0)
+		return (Area);
+	return (Area * Fixed(-1));
 }
 
 bool bsp(Point const a, Point const b, Point const c, Point const point)
 {
-	// Calculate area of triangle ABC
-	Fixed areaABC = area(a, b, c);
+	Fixed totalArea = calculArea(a, b, c);
 
-	// Calculate areas of triangles PBC, PAC, PAB
-	Fixed areaPBC = area(point, b, c);
-	Fixed areaPAC = area(a, point, c);
-	Fixed areaPAB = area(a, b, point);
+	Fixed area1 = calculArea(point, b, c);
+	Fixed area2 = calculArea(a, point, c);
+	Fixed area3 = calculArea(a, b, point);
 
-	// Check if point is on any edge or vertex
-	if (areaPBC == 0 || areaPAC == 0 || areaPAB == 0)
-	{
+	if (area1 == 0 || area2 == 0 || area3 == 0)
 		return (false);
-	}
-	// Check if sum of PBC, PAC, PAB is equal to ABC
-	return (areaABC == areaPBC + areaPAC + areaPAB);
+	return ((area1 + area2 + area3) == totalArea);
 }

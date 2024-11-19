@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/12 06:36:23 by mregrag           #+#    #+#              #
-#    Updated: 2024/10/12 06:53:49 by mregrag          ###   ########.fr        #
+#    Created: 2024/11/02 16:25:21 by mregrag           #+#    #+#              #
+#    Updated: 2024/11/18 20:55:17 by mregrag          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC	= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
-NAME	= fixed
+NAME	= fixeda
 RM 	= rm -f
 
 SRCS	= main.cpp Fixed.cpp
@@ -33,5 +33,3 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
-
-.PHONY: all clean fclean re

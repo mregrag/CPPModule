@@ -5,31 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/12 07:06:43 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/12 07:12:51 by mregrag          ###   ########.fr       */
+/*   Created: 2024/11/02 16:51:42 by mregrag           #+#    #+#             */
+/*   Updated: 2024/11/17 23:34:39 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include <iostream>
+#include "Point.hpp"
 
-int main( void )
+int main(void)
 {
-    Fixed a;
-    Fixed const b( 10 );
-    Fixed const c( 42.42f );
-    Fixed const d( b );
-    
-    a = Fixed( 1234.4321f );
-    
-    std::cout << "a is " << a << std::endl;
-    std::cout << "b is " << b << std::endl;
-    std::cout << "c is " << c << std::endl;
-    std::cout << "d is " << d << std::endl;
-    
-    std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-    std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-    std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-    std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-    
-    return 0;
+    Point a(0, 0);
+    Point b(10, 0);
+    Point c(5, 5);
+
+    Point inside(5, 2);
+
+    Point outside(-5, 5);
+    Point onEdge(3, 0);
+    Point vertex(5, 5);
+
+    std::cout << "Point inside triangle: " << (bsp(a, b, c, inside) ? "true" : "false") << std::endl;
+    std::cout << "Point outside triangle: " << (bsp(a, b, c, outside) ? "true" : "false") << std::endl;
+    std::cout << "Point on edge: " << (bsp(a, b, c, onEdge) ? "true" : "false") << std::endl;
+    std::cout << "Point on vertex: " << (bsp(a, b, c, vertex) ? "true" : "false") << std::endl;
+
+    return (0);
 }
