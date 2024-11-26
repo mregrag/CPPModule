@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 19:26:45 by mregrag           #+#    #+#             */
-/*   Updated: 2024/11/20 23:47:03 by mregrag          ###   ########.fr       */
+/*   Created: 2024/11/19 06:28:54 by mregrag           #+#    #+#             */
+/*   Updated: 2024/11/20 17:59:02 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#ifndef FRAGTRAP_H
+#define FRAGTRAP_H
 
-int main(int argc, char **argv)
+# include "ClapTrap.hpp"
+
+class FragTrap : public ClapTrap
 {
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else 
-	{
-		for (int i = 1; i < argc; i++)
-		{
-			std::string arg(argv[i]);
-			for (size_t j = 0; j < arg.length(); j++)
-				std::cout << toupper(arg[j]);
-		}
-		std::cout << std::endl;
-	}
-	return (0);
-}
+	public:
+		FragTrap();
+		FragTrap(const std::string& name);
+		FragTrap(const FragTrap& other);
+		FragTrap& operator=(const FragTrap& other);
+		~FragTrap();
+
+		void attack(const std::string& target);
+		void highFivesGuys();
+};
+
+#endif

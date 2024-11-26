@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 19:26:45 by mregrag           #+#    #+#             */
-/*   Updated: 2024/11/20 23:47:03 by mregrag          ###   ########.fr       */
+/*   Created: 2024/11/18 21:00:09 by mregrag           #+#    #+#             */
+/*   Updated: 2024/11/20 18:05:42 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+// main.cpp
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
+#include "iostream"
 
-int main(int argc, char **argv)
+int main()
 {
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else 
-	{
-		for (int i = 1; i < argc; i++)
-		{
-			std::string arg(argv[i]);
-			for (size_t j = 0; j < arg.length(); j++)
-				std::cout << toupper(arg[j]);
-		}
-		std::cout << std::endl;
-	}
-	return (0);
+    std::cout << "Creating FragTrap:" << std::endl;
+    FragTrap frag("Fraggy");
+    
+    std::cout << "\nTesting actions:" << std::endl;
+    frag.attack("Enemy");
+    frag.takeDamage(30);
+    frag.beRepaired(20);
+    frag.highFivesGuys();
+    
+    std::cout << "\nDestruction phase:" << std::endl;
+    return 0;
 }

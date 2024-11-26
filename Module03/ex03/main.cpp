@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 19:26:45 by mregrag           #+#    #+#             */
-/*   Updated: 2024/11/20 23:47:03 by mregrag          ###   ########.fr       */
+/*   Created: 2024/11/18 21:00:09 by mregrag           #+#    #+#             */
+/*   Updated: 2024/11/26 00:46:51 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// main.cpp
+#include "DiamondTrap.hpp"
 #include <iostream>
-#include <string>
 
-int main(int argc, char **argv)
+int main(void)
 {
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else 
-	{
-		for (int i = 1; i < argc; i++)
-		{
-			std::string arg(argv[i]);
-			for (size_t j = 0; j < arg.length(); j++)
-				std::cout << toupper(arg[j]);
-		}
-		std::cout << std::endl;
-	}
-	return (0);
+    DiamondTrap diamond("root");
+    std::cout << "-----------------" << std::endl;
+
+    DiamondTrap test = diamond;
+
+    test.whoAmI();
+    
+    /*diamond.whoAmI();*/
+    /*diamond.attack("Enemy");*/
+    /*diamond.takeDamage(30);*/
+    /*diamond.beRepaired(20);*/
+    /*diamond.highFivesGuys();*/
+    /*diamond.guardGate();*/
+    
+    return 0;
 }

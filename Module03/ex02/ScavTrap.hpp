@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 19:26:45 by mregrag           #+#    #+#             */
-/*   Updated: 2024/11/20 23:47:03 by mregrag          ###   ########.fr       */
+/*   Created: 2024/11/19 05:26:03 by mregrag           #+#    #+#             */
+/*   Updated: 2024/11/20 18:03:42 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
 
-int main(int argc, char **argv)
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
+
+#include "ClapTrap.hpp"
+
+class ScavTrap : public ClapTrap
 {
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else 
-	{
-		for (int i = 1; i < argc; i++)
-		{
-			std::string arg(argv[i]);
-			for (size_t j = 0; j < arg.length(); j++)
-				std::cout << toupper(arg[j]);
-		}
-		std::cout << std::endl;
-	}
-	return (0);
-}
+	public:
+		ScavTrap();
+		ScavTrap(const std::string& name);
+		ScavTrap(const ScavTrap& rhs);
+		ScavTrap& operator=(const ScavTrap& rhs);
+		~ScavTrap();
+
+		void attack(const std::string& target);
+		void guardGate();
+};
+
+#endif
