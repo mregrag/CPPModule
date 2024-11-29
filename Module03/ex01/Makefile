@@ -6,12 +6,12 @@
 #    By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/18 20:58:37 by mregrag           #+#    #+#              #
-#    Updated: 2024/11/20 21:09:18 by mregrag          ###   ########.fr        #
+#    Updated: 2024/11/26 18:50:57 by mregrag          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC     = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
+CFLAGS =  -Wall -Wextra -Werror -std=c++98 -Wshadow -g
 NAME   = scavtrap
 RM     = rm -f
 

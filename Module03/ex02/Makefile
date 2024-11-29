@@ -6,12 +6,12 @@
 #    By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/18 20:58:37 by mregrag           #+#    #+#              #
-#    Updated: 2024/11/19 06:28:27 by mregrag          ###   ########.fr        #
+#    Updated: 2024/11/26 19:48:16 by mregrag          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC     = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 -g
 NAME   = fragtrap
 RM     = rm -f
 

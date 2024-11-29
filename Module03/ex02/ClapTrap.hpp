@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 21:00:39 by mregrag           #+#    #+#             */
-/*   Updated: 2024/11/25 18:39:58 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/11/27 17:19:27 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define CLAPTRAP_HPP
 
 #include <string>
+#include <iostream>
 
 class ClapTrap 
 {
