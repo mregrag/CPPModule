@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 16:54:14 by mregrag           #+#    #+#             */
-/*   Updated: 2024/11/28 18:04:57 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/11/29 17:30:32 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ class Dog : public Animal
 {
 	public:
 		Dog();
-		Dog(const std::string& type);
 		Dog(const Dog& rhs);
 		Dog& operator=(const Dog& rhs);
 		~Dog();

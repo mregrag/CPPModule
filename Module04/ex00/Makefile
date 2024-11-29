@@ -6,14 +6,14 @@
 #    By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/28 16:51:35 by mregrag           #+#    #+#              #
-#    Updated: 2024/11/28 18:41:15 by mregrag          ###   ########.fr        #
+#    Updated: 2024/11/29 19:05:01 by mregrag          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = polymorphism
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 SRC = Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
