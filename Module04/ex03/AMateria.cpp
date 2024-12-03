@@ -6,23 +6,43 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 23:17:44 by mregrag           #+#    #+#             */
-/*   Updated: 2024/11/28 23:54:44 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/12/03 00:34:58 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
+AMateria::AMateria() : type("Unknown")
+{
+	std::cout << "[AMateria]	Default Constructor Called" << std::endl;
+}
+
 AMateria::AMateria(const std::string& type) : type(type)
 {
+	std::cout << "[AMateria]	Paramerized Constructor Called" << std::endl;
+}
+
+AMateria::AMateria(const AMateria& rhs) : type(rhs.type)
+{
+	std::cout << "[AMateria]	Copy Constructor Called" << std::endl;
+}
+
+AMateria& AMateria::operator=(const AMateria& rhs)
+{
+	std::cout << "[AMateria]	Copy Assignment operator Called" << std::endl;
+	if (this != &rhs)
+		this->type = rhs.type;
+	return (*this);
 }
 
 AMateria::~AMateria()
 {
+	std::cout << "[AMateria]	Destructor Called" << std::endl;
 }
 
 const std::string& AMateria::getType() const
 {
-    return (type);
+    return (this->type);
 }
 
 void AMateria::use(ICharacter& target)

@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 16:51:42 by mregrag           #+#    #+#             */
-/*   Updated: 2024/11/28 23:12:42 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/12/03 00:09:43 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 
 int main()
 {
-	// Attempting to instantiate an abstract class should fail:
-	// Animal* animal = new Animal(); // This should cause a compilation error!
-
 	const Animal* dog = new Dog();
 	const Animal* cat = new Cat();
 

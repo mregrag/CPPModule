@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ice.cpp                                            :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 23:34:42 by mregrag           #+#    #+#             */
-/*   Updated: 2024/11/28 23:35:37 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/12/03 01:32:55 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 Ice::Ice() : AMateria("ice")
 {
+	std::cout << "[Ice]	Default Constructor Called" << std::endl;
 }
 
 Ice::Ice(const Ice& other) : AMateria(other.type)

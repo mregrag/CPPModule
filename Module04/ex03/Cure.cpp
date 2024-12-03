@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 23:37:38 by mregrag           #+#    #+#             */
-/*   Updated: 2024/11/28 23:38:43 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/12/03 01:31:25 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,25 @@
 
 Cure::Cure() : AMateria("cure")
 {
+	std::cout << "[Cure]	Default Constructor Called" << std::endl;
 }
 
-Cure::Cure(const Cure& other) : AMateria(other.type)
+Cure::Cure(const Cure& rhs) : AMateria(rhs)
 {
+	std::cout << "[Cure]	Copy Constructor Called" << std::endl;
 }
 
-Cure& Cure::operator=(const Cure& other)
+Cure& Cure::operator=(const Cure& rhs)
 {
-	if (this != &other)
-		type = other.type;
+	std::cout << "[Cure]	Copy Assingment Operator Called" << std::endl;
+	if (this != &rhs)
+		AMateria::operator=(rhs);
 	return (*this);
 }
 
 Cure::~Cure()
 {
+	std::cout << "[Cure]	Destructor Called" << std::endl;
 }
 
 AMateria* Cure::clone() const
