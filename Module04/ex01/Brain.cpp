@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 21:09:58 by mregrag           #+#    #+#             */
-/*   Updated: 2024/12/02 22:48:29 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/12/12 20:22:07 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,42 @@
 
 Brain::Brain()
 {
-	std::cout << "[Brain]		Default Constructor Called" << std::endl;
-		for (size_t i = 0; i < 100 ; i++)
-			this->ideas[i] = "Empty";
+    std::cout << "[Brain]		Default Constructor Called" << std::endl;
+    for (int i = 0; i < 100 ; i++)
+	this->ideas[i] = "No Idea";
 }
 
 Brain::Brain(const Brain& rhs)
 {
-	std::cout << "[Brain]		Copy Constructor Called" << std::endl;
-	*this = rhs;
+    std::cout << "[Brain]		Copy Constructor Called" << std::endl;
+    *this = rhs;
 }
 
 Brain& Brain::operator=(const Brain& rhs)
 {
-	std::cout << "[Brain]		copy assignment operator called" << std::endl;
-	if (this != &rhs)
-	{
-		for (size_t i = 0; i < 100 ; i++)
-			this->ideas[i] = rhs.ideas[i];
-	}
-	return (*this);
+    std::cout << "[Brain]		Copy Assignment Operator Called" << std::endl;
+    if (this != &rhs)
+    {
+	for (int i = 0; i < 100 ; i++)
+	    this->ideas[i] = rhs.ideas[i];
+    }
+    return (*this);
 }
 
 Brain::~Brain()
 {
-	std::cout << "[Brain]		Destructor Called" << std::endl;
+    std::cout << "[Brain]		Destructor Called" << std::endl;
 }
 
-void Brain::setIdea(size_t index, const std::string& idea)
+void Brain::setIdea(int index, const std::string& idea)
 {
-	if (index < 100)
-		this->ideas[index] = idea;
+    if (index >= 0 && index < 100)
+	this->ideas[index] = idea;
 }
 
-std::string Brain::getIdea(size_t index) const
+std::string Brain::getIdea(int index) const
 {
-	if (index < 100)
-		return (this->ideas[index]);
-	return ("");
+    if (index >= 0 && index < 100)
+	return (this->ideas[index]);
+    return ("");
 }

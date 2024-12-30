@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 16:53:40 by mregrag           #+#    #+#             */
-/*   Updated: 2024/11/28 18:03:28 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/12/11 22:44:16 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Animal
 		Animal& operator=(const Animal& rhs);
 		virtual ~Animal();
 
-		std::string getType() const;
+		std::string const& getType() const;
 		virtual void makeSound() const;
 };
 

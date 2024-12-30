@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 16:54:14 by mregrag           #+#    #+#             */
-/*   Updated: 2024/11/28 22:50:47 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/12/06 22:31:11 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ class Dog : public Animal
 		Dog& operator=(const Dog& rhs);
 		~Dog();
 
-		std::string getType() const;
 		void makeSound() const;
 		Brain* getBrain() const;
 };

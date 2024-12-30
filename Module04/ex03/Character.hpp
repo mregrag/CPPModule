@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 23:39:47 by mregrag           #+#    #+#             */
-/*   Updated: 2024/11/28 23:39:58 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/12/11 17:30:33 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,22 @@
 
 class Character : public ICharacter
 {
-	private:
-		std::string name;
-		AMateria* inventory[4];
+    private:
+	std::string name;
+	AMateria* inventory[4];
+	AMateria* floor[4]; 
+	int floor_count;
+    public:
+	Character();
+	Character(const std::string& name);
+	Character(const Character& rhs);
+	Character& operator=(const Character& rhs);
+	~Character();
 
-	public:
-		Character(const std::string& name);
-		Character(const Character& other);
-		Character& operator=(const Character& other);
-		~Character();
-
-		const std::string& getName() const;
-		void equip(AMateria* m);
-		void unequip(int idx);
-		void use(int idx, ICharacter& target);
+	const std::string& getName() const;
+	void equip(AMateria* m);
+	void unequip(int idx);
+	void use(int idx, ICharacter& target);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 22:24:47 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/30 16:52:03 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/12/06 17:02:49 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ void Harl::complain(std::string level)
 			(this->*funcPtr[i])();
 			break;
 		}
+		std::cout <<  "hello" << std::endl;
 	}
 }

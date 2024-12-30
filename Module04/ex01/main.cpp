@@ -6,50 +6,47 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 16:51:42 by mregrag           #+#    #+#             */
-/*   Updated: 2024/12/02 23:20:48 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/12/13 16:36:06 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include <cstdlib>
-
-void leaks(void)
-{
-	system("leaks polymorphism");
-}
 
 int main()
 {
-	atexit(leaks);
-	const int numAnimals = 6;
-	Animal* animals[numAnimals];
+    std::cout << "----- Test 1: Array of Animals -----" << std::endl;
 
-	for (int i = 0; i < numAnimals / 2; ++i)
-		animals[i] = new Dog();
+    Animal* animals[4];
 
-	for (int i = numAnimals / 2; i < numAnimals; ++i)
-		animals[i] = new Cat();
+    for (int i = 0; i < 2; ++i)
+    {
+	animals[i] = new Dog();
+	animals[i + 2] = new Cat();
+    }
 
-	for (int i = 0; i < numAnimals; ++i)
-		animals[i]->makeSound();
+    for (int i = 0; i < 4; ++i)
+	animals[i]->makeSound();
 
-	Dog dog1;
-	dog1.getBrain()->setIdea(0, "Chase the ball");
-	Dog dog2 = dog1;
-	std::cout << "Dog2 idea: " << dog2.getBrain()->getIdea(0) << std::endl;
-	std::cout << "Dog1 idea: " << dog1.getBrain()->getIdea(0) << std::endl;
+    std::cout << "----- Test 2: Deep Copy -----" << std::endl;
+    Dog originalDog;
+    Dog copiedDog;
 
-	dog2.getBrain()->setIdea(0, "Protect the house");
+    originalDog.getBrain()->setIdea(0, "I want to play ball");
+    copiedDog = originalDog;
 
-	std::cout << "-----------After Modefication ----------" << std::endl;
-	std::cout << "Dog1 idea: " << dog1.getBrain()->getIdea(0) << std::endl;
-	std::cout << "Dog2 idea: " << dog2.getBrain()->getIdea(0) << std::endl;
+    std::cout << "originalDog idea: " << copiedDog.getBrain()->getIdea(0) << std::endl;
+    std::cout << "copiedDog idea: " << originalDog.getBrain()->getIdea(0) << std::endl;
 
-	std::cout << "-----------Destructors--------" << std::endl;
-	for (int i = 0; i < numAnimals; ++i)
-		delete animals[i];
+    copiedDog.getBrain()->setIdea(0, "I want to sleep");
 
-	return (0);
+    std::cout << "-----------After Modefication ----------" << std::endl;
+    std::cout << "Dog1 idea: " << originalDog.getBrain()->getIdea(0) << std::endl;
+    std::cout << "Dog2 idea: " << copiedDog.getBrain()->getIdea(0) << std::endl;
+
+    std::cout << "-----------Destructors--------" << std::endl;
+    for (int i = 0; i < 4; ++i)
+	delete animals[i];
+
+    return (0);
 }
-

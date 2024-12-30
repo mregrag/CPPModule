@@ -6,31 +6,31 @@
 #    By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/28 23:17:04 by mregrag           #+#    #+#              #
-#    Updated: 2024/11/29 00:10:28 by mregrag          ###   ########.fr        #
+#    Updated: 2024/12/13 17:53:23 by mregrag          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex03
+NAME = materia
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp \
-       AMateria.cpp \
-       Ice.cpp \
-       Cure.cpp \
-       Character.cpp \
-       MateriaSource.cpp
+SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp
 
-OBJS = $(SRCS:.cpp=.o)
+HEADERS = AMateria.hpp Cure.hpp Ice.hpp ICharacter.hpp Character.hpp MateriaSource.hpp IMateriaSource.hpp
+
+OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+
+%.o: %.cpp $(HEADERS)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)

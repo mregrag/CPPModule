@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 23:16:58 by mregrag           #+#    #+#             */
-/*   Updated: 2024/11/28 23:55:25 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/12/14 14:31:18 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,42 @@
 
 int main()
 {
-	MateriaSource src;
-	src.learnMateria(new Ice());
-	src.learnMateria(new Cure());
+    IMateriaSource* src = new MateriaSource();
+    
+    std::cout << "------------------------------------" << std::endl;
 
-	Character me("Me");
-	AMateria* tmp;
+    src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
+    std::cout << "------------------------------------" << std::endl;
 
-	tmp = src.createMateria("ice");
-	me.equip(tmp);
+    ICharacter* me = new Character("me");
+    std::cout << "------------------------------------" << std::endl;
 
-	tmp = src.createMateria("cure");
-	me.equip(tmp);
+    AMateria *tmp;
+    std::cout << "------------------------------------" << std::endl;
 
-	Character bob("Bob");
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
+    std::cout << "------------------------------------" << std::endl;
 
-	me.use(0, bob); // Uses ice
-	me.use(1, bob); // Uses cure
+    ICharacter* bob = new Character("bob");
 
-	return 0;
+    std::cout << "------------------------------------" << std::endl;
+
+    me->use(0, *bob);
+    me->use(1, *bob);
+    std::cout << "------------------------------------" << std::endl;
+
+    std::cout << "------------Destructors----------" << std::endl;
+
+    delete bob;
+    std::cout << "------------------------------------" << std::endl;
+    delete me;
+    std::cout << "------------------------------------" << std::endl;
+    delete src;
+    std::cout << "------------------------------------" << std::endl;
+
+    return (0);
 }
-

@@ -6,11 +6,11 @@
 #    By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/26 20:55:40 by mregrag           #+#    #+#              #
-#    Updated: 2024/10/26 21:41:07 by mregrag          ###   ########.fr        #
+#    Updated: 2024/12/06 16:48:06 by mregrag          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC	= c++
+CC = g++-10
 CFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 NAME	= losers
 RM 	= rm -f
@@ -23,7 +23,7 @@ all: $(NAME)
 $(NAME): $(OBJS) 
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cpp HumanA.hpp HumanB.hpp
+%.o: %.cpp 
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

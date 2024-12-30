@@ -6,11 +6,11 @@
 #    By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/26 22:41:18 by mregrag           #+#    #+#              #
-#    Updated: 2024/10/30 17:47:56 by mregrag          ###   ########.fr        #
+#    Updated: 2024/12/06 17:39:56 by mregrag          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC	= c++
+CC	= gcc-10
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 NAME	= harlFilter
 RM 	= rm -f

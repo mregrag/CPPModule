@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 22:42:03 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/26 23:08:28 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/12/06 17:13:00 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 class Harl
 {
 	private:
-		void debug(void);
-		void info(void);
-		void warning(void);
-		void error(void);
+		void debug();
+		void info();
+		void warning();
+		void error();
 
 	public:
 		Harl();
