@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +j#+           */
 /*   Created: 2024/10/05 22:05:29 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/24 01:23:13 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/10/24 04:15:05 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,11 @@ PhoneBook::~PhoneBook()
 std::string PhoneBook::Truncate(const std::string& str) const
 {
 	std::string result = str;
-	std::replace(result.begin(), result.end(), '\t', ' ');
+	for (size_t i = 0; i < result.length(); ++i)
+	{
+		if (result[i] == '\t')
+			result[i] = ' ';
+	}
 	if (result.length() > 10)
 		return (result.substr(0, 9) + ".");
 	return (result);
@@ -119,7 +123,7 @@ void PhoneBook::searchContact(void) const
 		if (input.empty())
 			continue;
 		index = (input[0] - 48) - 1;
-		if (index > 7 || index < 0)
+		if (input.length() > 1 || index > 7 || index < 0)
 		{
 			std::cout << "Invalid index" << std::endl;
 			continue;
@@ -145,10 +149,10 @@ void PhoneBook::displayAllContacts(void) const
 
 	for (int i = 0; i < count; i++)
 	{
-		std::cout << std::setw(10) << std::right << i + 1 << "|";
-		std::cout << std::setw(10) << std::right << Truncate(contacts[i].getFirstName())<< "|";
-		std::cout << std::setw(10) << std::right << Truncate(contacts[i].getLastName())<< "|";
-		std::cout << std::setw(10) << std::right << Truncate(contacts[i].getNickname())<< "|";
+		std::cout << std::setw(10) << i + 1 << "|";
+		std::cout << std::setw(10) << Truncate(contacts[i].getFirstName())<< "|";
+		std::cout << std::setw(10) << Truncate(contacts[i].getLastName())<< "|";
+		std::cout << std::setw(10) << Truncate(contacts[i].getNickname())<< "|";
 		std::cout << std::endl;
 	}
 	std::cout << std::string(44, '-') << std::endl;

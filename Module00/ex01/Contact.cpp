@@ -6,14 +6,14 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 22:06:15 by mregrag           #+#    #+#             */
-/*   Updated: 2024/12/07 16:51:14 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/10/24 04:04:16 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include <iostream>
 
-Contact::Contact()
+Contact::Contact() : firstName(""), lastName(""), nickName(""), phoneNumber(""), darkestSecret("") 
 {
 }
 

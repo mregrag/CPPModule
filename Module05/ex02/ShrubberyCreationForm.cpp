@@ -6,51 +6,59 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:07:44 by mregrag           #+#    #+#             */
-/*   Updated: 2024/12/29 20:27:21 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/14 17:40:52 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ShrubberyCreationForm.cpp
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm()
-    : AForm("ShrubberyCreation", 145, 137), _target("default") {}
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrubbery", 145, 137), target("default")
+{
+}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
-    : AForm("ShrubberyCreation", 145, 137), _target(target) {}
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : AForm("Shrubbery", 145, 137), target(target)
+{
+}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
-    : AForm(other), _target(other._target) {}
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& rhs) : AForm(rhs), target(rhs.target)
+{
+}
 
-ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other) {
-    if (this != &other) {
-        AForm::operator=(other);
-        _target = other._target;
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& rhs)
+{
+    if (this != &rhs)
+    {
+        AForm::operator=(rhs);
+        this->target = rhs.target;
     }
-    return *this;
+    return (*this);
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm() {}
-
-void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
-    checkExecutability(executor);
-    
-    std::string filename = _target + "_shrubbery";
-    std::ofstream file(filename.c_str());
-    if (!file.is_open())
-        throw std::runtime_error("Could not create file");
-
-    file << "      /\\      " << std::endl;
-    file << "     /\\*\\     " << std::endl;
-    file << "    /\\O\\*\\    " << std::endl;
-    file << "   /*/\\/\\/\\   " << std::endl;
-    file << "  /\\O\\/\\*\\/\\  " << std::endl;
-    file << " /\\*\\/\\*\\/\\/\\ " << std::endl;
-    file << "/\\O\\/\\/*/\\/O/\\" << std::endl;
-    file << "      ||      " << std::endl;
-    file << "      ||      " << std::endl;
-    file << "      ||      " << std::endl;
-    
-    file.close();
+ShrubberyCreationForm::~ShrubberyCreationForm() 
+{
 }
 
+void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+{
+    this->checkExecutability(executor);
+    std::string filename = target + "_shrubbery";
+    std::ofstream outFile(filename.c_str());
+    
+    if (!outFile.is_open())
+        throw std::runtime_error("Cannot create output file");
+
+    outFile << "       *" << std::endl;
+    outFile << "      ***" << std::endl;
+    outFile << "     *****" << std::endl;
+    outFile << "    *******" << std::endl;
+    outFile << "   *********" << std::endl;
+    outFile << "  ***********" << std::endl;
+    outFile << " *************" << std::endl;
+    outFile << "      |||" << std::endl;
+    outFile << "      |||" << std::endl;
+    outFile << "      |||" << std::endl;
+    outFile << "      |||" << std::endl;
+    outFile << "    ~~~~~~~" << std::endl;
+
+    outFile.close();
+}

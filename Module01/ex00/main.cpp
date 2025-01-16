@@ -6,11 +6,12 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 14:48:59 by mregrag           #+#    #+#             */
-/*   Updated: 2024/12/06 20:50:15 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/15 14:41:24 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <SDL2/SDL.h>
 
 int	main(void)
 {

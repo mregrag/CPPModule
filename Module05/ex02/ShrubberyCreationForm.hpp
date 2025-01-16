@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:07:57 by mregrag           #+#    #+#             */
-/*   Updated: 2024/12/29 20:27:40 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/14 16:22:22 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@
 #include "AForm.hpp"
 #include <fstream>
 
-class ShrubberyCreationForm : public AForm {
-private:
-    std::string _target;
+class ShrubberyCreationForm : public AForm
+{
+    private:
+	std::string target;
+    public:
+	ShrubberyCreationForm();
+	ShrubberyCreationForm(const std::string& target);
+	ShrubberyCreationForm(const ShrubberyCreationForm& other);
+	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
+	~ShrubberyCreationForm();
 
-public:
-    ShrubberyCreationForm();
-    ShrubberyCreationForm(const std::string& target);
-    ShrubberyCreationForm(const ShrubberyCreationForm& other);
-    ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
-    ~ShrubberyCreationForm();
-
-    void execute(Bureaucrat const & executor) const;
+	void execute(Bureaucrat const& executor) const;
 };
 
 #endif

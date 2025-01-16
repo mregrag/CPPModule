@@ -6,13 +6,13 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 23:14:24 by mregrag           #+#    #+#             */
-/*   Updated: 2024/10/24 01:37:35 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/10/24 03:57:03 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
-#include <iomanip>
+#include <ctime>
 
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
@@ -118,10 +118,20 @@ void    Account::displayStatus(void) const
 	std::cout << "withdrawals:" << this->_nbWithdrawals << std::endl;
 }
 
-void    Account::_displayTimestamp(void)
+void Account::_displayTimestamp() 
 {
-	time_t		tm;
+    time_t timer;
+    tm	*ltm;
 
-	std::time(&tm);
-	std::cout << "[" << std::put_time(localtime(&tm), "%Y%m%d_%H%M%S") << "] ";
+    time(&timer);
+    ltm = localtime(&timer);
+    std::cout << "[" 
+              << 1900 + ltm->tm_year
+              << 1 + ltm->tm_mon
+              << ltm->tm_mday
+              << "_"
+              << ltm->tm_hour
+              << ltm->tm_min
+              << ltm->tm_sec
+              << "] ";
 }

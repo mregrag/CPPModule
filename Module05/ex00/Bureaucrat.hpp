@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 14:27:44 by mregrag           #+#    #+#             */
-/*   Updated: 2024/12/29 19:17:58 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/16 21:37:25 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define BUREAUCTRAT_HPP
 
 #include <iostream>
-#include <string>
 #include <exception>
 
 class Bureaucrat
@@ -30,20 +29,22 @@ class Bureaucrat
 	Bureaucrat& operator=(const Bureaucrat& rhs);
 	~Bureaucrat();
 
+	const std::string& getName() const;
+	int getGrade() const;
+
+	void incrementGrade();
+	void decrementGrade();
+
 	class GradeTooHighException : public std::exception {
 	    public:
 		const char* what() const throw();
 	};
+
 	class GradeTooLowException : public std::exception {
 	    public:
 		const char* what() const throw();
 	};
 
-	std::string getName() const;
-	int getGrade() const;
-
-	void incrementGrade();
-	void decrementGrade();
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);

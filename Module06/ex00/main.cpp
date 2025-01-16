@@ -6,11 +6,12 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 21:34:04 by mregrag           #+#    #+#             */
-/*   Updated: 2024/12/29 23:38:45 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/15 22:27:22 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+#include <iostream>
 
 int main(int argc, char* argv[])
 {
@@ -20,8 +21,6 @@ int main(int argc, char* argv[])
 	return (1);
     }
 
-    float x = 5.545454f;
-    std::cout << x << std::endl;
     ScalarConverter::convert(argv[1]);
 
     return (0);

@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 21:36:11 by mregrag           #+#    #+#             */
-/*   Updated: 2024/12/30 00:19:29 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/15 23:44:25 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,31 @@
 #define SCALAR_CONVERTER_HPP
 
 #include <string>
-#include <iostream>
-#include <cstdlib>
-#include <limits>
-#include <cmath>
 
-class ScalarConverter {
-private:
-    ScalarConverter();
-    
-    static bool isChar(const std::string& literal);
-    static bool isInt(const std::string& literal);
-    static bool isFloat(const std::string& literal);
-    static bool isDouble(const std::string& literal);
-    
-    static void printChar(double value);
-    static void printInt(double value);
-    static void printFloat(double value);
-    static void printDouble(double value);
-    
-public:
-    static void convert(const std::string& literal);
+class ScalarConverter
+{
+    private:
+	/*ScalarConverter();*/
+	/*ScalarConverter(const ScalarConverter& other);*/
+	/*ScalarConverter& operator=(const ScalarConverter& other);*/
+
+	// Helper methods for type detection
+	static bool isChar(const std::string& str);
+	static bool isInt(const std::string& str);
+	static bool isFloat(const std::string& str);
+	static bool isDouble(const std::string& str);
+
+	// Helper methods for conversion
+	static void convertFromChar(char value);
+	static void convertFromInt(int value);
+	static void convertFromFloat(float value);
+	static void convertFromDouble(double value);
+
+    public:
+	~ScalarConverter();
+
+	// Static conversion method
+	static void convert(const std::string str);
 };
 
 #endif
-

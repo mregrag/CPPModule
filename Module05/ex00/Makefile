@@ -6,7 +6,7 @@
 #    By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/14 14:21:00 by mregrag           #+#    #+#              #
-#    Updated: 2024/12/14 14:22:52 by mregrag          ###   ########.fr        #
+#    Updated: 2025/01/03 18:23:03 by mregrag          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,4 +32,3 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
-
