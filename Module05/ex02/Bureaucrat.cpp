@@ -6,12 +6,13 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:06:28 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/14 17:46:09 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/18 21:18:30 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat() : name("Default"), grade(150)
 {
@@ -21,19 +22,18 @@ Bureaucrat::Bureaucrat(const Bureaucrat& rhs) : name(rhs.name), grade(rhs.grade)
 {
 }
 
-Bureaucrat::Bureaucrat(const std::string& name, int grade) : name(name)
+Bureaucrat::Bureaucrat(const std::string& name, int grade) : name(name), grade(grade)
 {
-    if (grade < 1)
+    if (this->grade < 1)
         throw GradeTooHighException();
-    if (grade > 150)
+    if (this->grade > 150)
         throw GradeTooLowException();
-    this->grade = grade;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs)
 {
     if (this != &rhs)
-        grade = rhs.grade;
+        this->grade = rhs.grade;
     return (*this);
 }
 
@@ -41,7 +41,7 @@ Bureaucrat::~Bureaucrat()
 {
 }
 
-std::string Bureaucrat::getName() const
+const std::string& Bureaucrat::getName() const
 {
     return (this->name);
 }

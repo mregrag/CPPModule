@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:17:53 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/15 17:00:51 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/18 21:34:28 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,5 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target)
 
 const char* Intern::FormNotFoundException::what() const throw()
 {
-    return ("Form type not found!");
+    return ("Form not found!");
 }

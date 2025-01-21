@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 13:30:10 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/15 17:15:53 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/19 19:21:44 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,9 @@ int main(void)
 {
 
     Calculator calc;
+
+    void (Calculator::*ptr)(int, int);
+    (calc.*ptr)(2, 3);
 
     calc.result("add", 3, 3);
     calc.result("sub", 3, 3);

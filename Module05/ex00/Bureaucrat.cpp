@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 14:23:23 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/16 21:36:47 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/18 20:11:44 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,16 @@ Bureaucrat::Bureaucrat() : name("Default"), grade(150)
 {
 }
 
-Bureaucrat::Bureaucrat(const std::string& name, int grade) : name(name)
-{
-    if (grade < 1)
-        throw GradeTooHighException();
-    if (grade > 150)
-        throw GradeTooLowException();
-    this->grade = grade;
-}
-
 Bureaucrat::Bureaucrat(const Bureaucrat& rhs) : name(rhs.name), grade(rhs.grade)
 {
+}
+
+Bureaucrat::Bureaucrat(const std::string& name, int grade) : name(name), grade(grade)
+{
+    if (this->grade < 1)
+        throw GradeTooHighException();
+    if (this->grade > 150)
+        throw GradeTooLowException();
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs)
@@ -74,8 +73,8 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
     return ("Grade is too low!");
 }
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
+std::ostream& operator<<(std::ostream& lhs, const Bureaucrat& bureaucrat)
 {
-    os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
-    return (os);
+    lhs << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
+    return (lhs);
 }

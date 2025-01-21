@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:05:34 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/14 18:04:40 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/18 20:44:20 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <string>
 #include <iostream>
-#include <cstdlib>
 
 class Bureaucrat;
 

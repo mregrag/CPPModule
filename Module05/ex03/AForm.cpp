@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:05:17 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/14 21:54:04 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/18 21:42:39 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,11 @@ const char* AForm::FormNotSignedException::what() const throw()
 }
 
 
-std::ostream& operator<<(std::ostream& os, const AForm& form)
+std::ostream& operator<<(std::ostream& lhs, const AForm& form)
 {
-    os << "AForm: " << form.getName() 
+    lhs << "AForm: " << form.getName() 
 	<< ", Signed: " << (form.getIsSigned() ? "Yes" : "No")
 	<< ", Grade to sign: " << form.getGradeToSign()
 	<< ", Grade to execute: " << form.getGradeToExecute();
-    return (os);
+    return (lhs);
 }

@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:05:17 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/14 17:36:03 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/18 20:46:42 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,17 +78,17 @@ void AForm::checkExecutability(const Bureaucrat& executor) const
 
 const char* AForm::GradeTooHighException::what() const throw()
 {
-    return ("AForm grade is too high!");
+    return ("Form grade is too high!");
 }
 
 const char* AForm::GradeTooLowException::what() const throw()
 {
-    return ("AForm grade is too low!");
+    return ("Form grade is too low!");
 }
 
 const char* AForm::FormNotSignedException::what() const throw()
 {
-    return ("AForm grade is not sign!");
+    return ("Form is not sign!");
 }
 
 

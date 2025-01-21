@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:06:55 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/07 17:59:26 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/17 23:16:51 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class Bureaucrat
 
 	void signForm(AForm& form);
 
-	std::string getName() const;
+	const std::string& getName() const;
 	int getGrade() const;
 
 	void incrementGrade();

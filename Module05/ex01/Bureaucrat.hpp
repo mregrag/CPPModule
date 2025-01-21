@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 14:27:44 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/07 16:28:22 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/18 19:50:37 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Bureaucrat
 	Bureaucrat& operator=(const Bureaucrat& rhs);
 	~Bureaucrat();
 
-	std::string getName() const;
+	const std::string& getName() const;
 	int getGrade() const;
 
 	void incrementGrade();

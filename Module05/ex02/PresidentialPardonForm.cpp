@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:08:22 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/06 19:36:40 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/18 21:14:31 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string& target) : AFor
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) : AForm(other), target(other.target)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& rhs) : AForm(rhs), target(rhs.target)
 {
 }
 
-PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& other) 
+PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& rhs) 
 {
-    if (this != &other)
+    if (this != &rhs)
     {
-	AForm::operator=(other);
-	this->target = other.target;
+	AForm::operator=(rhs);
+	this->target = rhs.target;
     }
     return (*this);
 }
@@ -38,8 +38,9 @@ PresidentialPardonForm::~PresidentialPardonForm()
 {
 }
 
-void PresidentialPardonForm::execute(Bureaucrat const& executor) const
+void PresidentialPardonForm::execute(const Bureaucrat& executor) const
 {
     checkExecutability(executor);
-    std::cout << target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+
+    std::cout << this->target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }

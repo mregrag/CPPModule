@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:07:57 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/03 21:28:51 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/18 21:29:31 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ class ShrubberyCreationForm : public AForm
     public:
 	ShrubberyCreationForm();
 	ShrubberyCreationForm(const std::string& target);
-	ShrubberyCreationForm(const ShrubberyCreationForm& other);
-	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
+	ShrubberyCreationForm(const ShrubberyCreationForm& rhs);
+	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& rhs);
 	~ShrubberyCreationForm();
 
-	void execute(Bureaucrat const& executor) const;
+	void execute(const Bureaucrat& executor) const;
 };
 
 #endif

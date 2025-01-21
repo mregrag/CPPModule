@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:24:18 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/13 21:58:35 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/18 20:31:37 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ Form::~Form()
 {
 }
 
-std::string Form::getName() const
+const std::string& Form::getName() const
 {
     return (this->name);
 }
@@ -68,12 +68,12 @@ void Form::beSigned(const Bureaucrat& bureaucrat)
 
 const char* Form::GradeTooHighException::what() const throw()
 {
-    return ("Form grade is too high!");
+    return ("grade is too high!");
 }
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-    return ("Form grade is too low!");
+    return ("grade is too low!");
 }
 
 std::ostream& operator<<(std::ostream& lhs, const Form& form)

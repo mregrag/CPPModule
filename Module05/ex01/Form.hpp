@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:23:13 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/07 16:10:44 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/18 20:31:55 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Form
 	Form& operator=(const Form& rhs);
 	~Form();
 
-	std::string getName() const;
+	const std::string& getName() const;
 	bool getIsSigned() const;
 	int getGradeToSign() const;
 	int getGradeToExecute() const;
@@ -47,6 +47,6 @@ class Form
 	};
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& form);
+std::ostream& operator<<(std::ostream& lhs, const Form& form);
 
 #endif

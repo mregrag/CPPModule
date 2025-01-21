@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:05:54 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/14 21:51:48 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/18 21:16:05 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int main()
         std::cout << "\n=== Test 1: Creating Form and Bureaucrats ===" << std::endl;
         /*ShrubberyCreationForm form("home");*/
         /*RobotomyRequestForm form("home");*/
-	RobotomyRequestForm form("home");
+	PresidentialPardonForm form("home");
         Bureaucrat highGrade("Boss", 5);        // Can sign and execute
         /*Bureaucrat midGrade("Secretary", 140);  // Can sign but not execute*/
         /*Bureaucrat lowGrade("Intern", 150);     // Cannot sign or execute*/

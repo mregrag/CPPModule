@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
-/* k                                                      :::      ::::::::   */
+/*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/14 14:23:23 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/13 21:30:55 by mregrag          ###   ########.fr       */
+/*   Created: 2025/01/18 19:29:18 by mregrag           #+#    #+#             */
+/*   Updated: 2025/01/18 20:37:42 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : name("Default"), grade(150)
+Bureaucrat::Bureaucrat() : name("Bureaucrat"), grade(150)
 {
+}
+
+Bureaucrat::Bureaucrat(const std::string& name, int grade) : name(name), grade(grade)
+{
+    if (this->grade < 1)
+	throw GradeTooHighException();
+    if (this->grade > 150)
+	throw GradeTooLowException();
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& rhs) : name(rhs.name), grade(rhs.grade)
 {
 }
-
-Bureaucrat::Bureaucrat(const std::string& name, int grade) : name(name)
-{
-    if (grade < 1)
-	throw GradeTooHighException();
-    if (grade > 150)
-	throw GradeTooLowException();
-    this->grade = grade;
-}
-
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs)
 {
     if (this != &rhs)
@@ -40,7 +38,7 @@ Bureaucrat::~Bureaucrat()
 {
 }
 
-std::string Bureaucrat::getName() const
+const std::string& Bureaucrat::getName() const
 {
     return (this->name);
 }
@@ -72,7 +70,6 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
     return ("Grade is too low!");
 }
-
 
 void Bureaucrat::signForm(Form& form)
 {

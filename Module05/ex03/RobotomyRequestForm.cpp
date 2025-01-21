@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:29:04 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/14 22:53:37 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/18 21:28:12 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 {
 }
 
-void RobotomyRequestForm::execute(Bureaucrat const & executor) const
+void RobotomyRequestForm::execute(const Bureaucrat& executor) const
 {
     checkExecutability(executor);
 

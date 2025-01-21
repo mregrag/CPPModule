@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 14:27:44 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/16 21:37:25 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/18 20:00:08 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,6 @@ class Bureaucrat
 
 };
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
+std::ostream& operator<<(std::ostream& lsh, const Bureaucrat& bureaucrat);
 
 #endif

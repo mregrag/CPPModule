@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:07:44 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/14 17:40:52 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/18 20:57:25 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 
-void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
     this->checkExecutability(executor);
     std::string filename = target + "_shrubbery";

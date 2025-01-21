@@ -6,11 +6,12 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:29:04 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/14 21:52:59 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/18 20:55:28 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
+#include <cstdlib>
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm("Robotomy", 72, 45), target("default")
 {

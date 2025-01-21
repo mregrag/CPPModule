@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:05:54 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/14 22:39:39 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/18 21:39:44 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main()
 
         // Test 1: Create and use RobotomyRequestForm
         std::cout << "\n=== Test 1: RobotomyRequestForm ===" << std::endl;
-        AForm* rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+        AForm* rrf = someRandomIntern.makeForm("robotomy equest", "Bender");
         if (rrf)
 	{
             boss.signForm(*rrf);
