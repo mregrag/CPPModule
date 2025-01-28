@@ -6,11 +6,9 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 23:50:12 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/08 18:30:25 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/27 16:46:28 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#pragma once
 
 template <typename T>
 void swap(T &a, T &b)
@@ -37,4 +35,3 @@ const T &max(const T &a, const T &b)
 	return (a);
     return (b);
 }
-

@@ -6,78 +6,97 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 22:45:23 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/09 16:57:26 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/27 23:11:19 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef ARRAY_TPP
+#define ARRAY_TPP
 
-template<typename T>
-Array<T>::Array() : array(NULL), _size(0)
+#include "Array.hpp"
+
+template <typename T>
+Array<T>::Array() : _array(NULL), _size(0)
 {
 }
 
-template<typename T>
+template <typename T>
 Array<T>::Array(unsigned int n) : _size(n)
 {
-    array = new T[n]();
+    this->_array = new T[this->_size]();
+    else
+	throw InvalidArraySizeException();
 }
 
-template<typename T>
-Array<T>::Array(const Array& lhs) : _size(lhs._size)
+template <typename T>
+Array<T>::Array(const Array<T>& rhs) : _array(NULL), _size(0)
 {
-    array = new T[_size]();
-    for (unsigned int i = 0; i < _size; i++)
-	array[i] = lhs.array[i];
+    *this = rhs;
 }
 
-template<typename T>
-Array<T>& Array<T>::operator=(const Array& lhs)
+template <typename T>
+Array<T>::~Array() 
 {
-    if (this != &lhs)
+    if (this->_array)
+        delete[] this->_array;
+}
+
+template <typename T>
+Array<T>& Array<T>::operator=(const Array<T>& rhs)
+{
+    if (this != &rhs)
     {
-	if (array)
-	    delete[] array;
-	_size = lhs._size;
-	array = new T[_size]();
-	for (unsigned int i = 0; i < _size; i++)
-	    array[i] = lhs.array[i];
+        if (this->_array)
+            delete[] this->_array;
+        this->_size = rhs._size;
+        if (this->_size > 0)
+	{
+            this->_array = new T[this->_size];
+            for (unsigned int i = 0; i < this->_size; ++i)
+                this->_array[i] = rhs._array[i];
+        }
+	else
+            _array = NULL;
     }
-    return *this;
+    return (*this);
 }
 
-template<typename T>
+template <typename T>
 T& Array<T>::operator[](unsigned int index)
 {
-    if (index >= _size)
-	throw OutOfBoundsException();
-    return (array[index]);
+    if (index >= this->_size)
+        throw OutOfBoundsException();
+    return (this->_array[index]);
 }
 
-template<typename T>
-Array<T>::~Array()
-{
-    delete[] array;
-}
-
-
-template<typename T>
+template <typename T>
 const T& Array<T>::operator[](unsigned int index) const
 {
-    if (index >= _size)
-	throw OutOfBoundsException();
-    return (array[index]);
+    if (index >= this->_size)
+        throw OutOfBoundsException();
+    return (this->_array[index]);
 }
 
-template<typename T>
+template <typename T>
 unsigned int Array<T>::size() const
 {
-    return (_size);
+    return (this->_size);
 }
 
-template<typename T>
+
+// Implement the `what()` method for InvalidArraySizeException
+template <typename T>
+const char* Array<T>::InvalidArraySizeException::what() const throw()
+{
+    return ("Invalid array size exception occurred.");
+}
+
+// Implement the `what()` method for OutOfBoundsException
+template <typename T>
 const char* Array<T>::OutOfBoundsException::what() const throw()
 {
-    return ("Index is out of bounds");
+    return ("Array index out of bounds exception occurred.");
 }
+
+#endif
 

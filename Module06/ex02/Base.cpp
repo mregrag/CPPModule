@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 23:53:27 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/27 17:31:54 by mregrag          ###   ########.fr       */
+/*   Created: 2025/01/22 23:25:16 by mregrag           #+#    #+#             */
+/*   Updated: 2025/01/22 23:26:26 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-template <typename T>
-void iter(T *array, int length, void (*func)(T &))
+#include "Base.hpp"
+
+Base::~Base()
 {
-    if (!array || !func)
-	return;
-    for (int i = 0; i < length; ++i)
-	func(array[i]);
 }
+

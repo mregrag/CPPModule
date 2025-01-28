@@ -5,17 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/12/29 21:33:58 by mregrag           #+#    #+#              #
-#    Updated: 2025/01/22 22:56:43 by mregrag          ###   ########.fr        #
+#    Created: 2025/01/22 22:55:25 by mregrag           #+#    #+#              #
+#    Updated: 2025/01/23 16:01:55 by mregrag          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# Makefile
 NAME = convert
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp ScalarConverter.cpp
+SRCS = main.cpp Serializer.cpp Data.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
@@ -23,7 +22,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
-%.o: %.cpp ScalarConverter.hpp
+%.o: %.cpp Serializer.hpp Data.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

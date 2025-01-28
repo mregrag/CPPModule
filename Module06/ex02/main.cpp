@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 23:53:27 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/27 17:31:54 by mregrag          ###   ########.fr       */
+/*   Created: 2025/01/22 23:35:44 by mregrag           #+#    #+#             */
+/*   Updated: 2025/01/24 20:14:21 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-template <typename T>
-void iter(T *array, int length, void (*func)(T &))
+#include "Functions.hpp"
+#include <iostream>
+
+int main(void)
 {
-    if (!array || !func)
-	return;
-    for (int i = 0; i < length; ++i)
-	func(array[i]);
+    Base* base = generate();
+
+    // Identify the type using a pointer
+    std::cout << "Identifying type using a pointer: ";
+    identify(base);
+
+    // Identify the type using a reference
+    std::cout << "Identifying type using a reference: ";
+    identify(*base);
+
+    delete base;
+
+    return (0);
 }
+

@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   test.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/29 21:34:04 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/22 20:40:22 by mregrag          ###   ########.fr       */
+/*   Created: 2025/01/22 19:39:00 by mregrag           #+#    #+#             */
+/*   Updated: 2025/01/28 00:26:41 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
 #include <iostream>
+#include <string>
+#include <cmath>
+#include <cfloat>
 
-int main(int argc, char* argv[])
-{
-    if (argc != 2)
-    {
-	std::cout << "Usage: ./convert <literal>" << std::endl;;
-	return (1);
-    }
 
-    ScalarConverter::convert(argv[1]);
 
-    return (0);
+#include <iostream>
+#include <climits> // For INT_MAX
+
+int main() {
+    float maxInt = FLT_MAX + 10; // Maximum value of an int
+    float maxIntAsFloat = static_cast<float>(maxInt + 10); // Cast to float
+
+    std::cout << "Maximum int: " << maxInt << std::endl;
+    std::cout << "Maximum int as float: " << maxIntAsFloat << std::endl;
+
+    return 0;
 }
 

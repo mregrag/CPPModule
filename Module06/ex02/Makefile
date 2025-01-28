@@ -5,26 +5,25 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/12/29 21:33:58 by mregrag           #+#    #+#              #
-#    Updated: 2025/01/22 22:56:43 by mregrag          ###   ########.fr        #
+#    Created: 2025/01/22 23:24:45 by mregrag           #+#    #+#              #
+#    Updated: 2025/01/22 23:25:02 by mregrag          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# Makefile
-NAME = convert
-CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
-
-SRCS = main.cpp ScalarConverter.cpp
+NAME = identify
+SRCS = main.cpp Base.cpp Functions.cpp
 OBJS = $(SRCS:.cpp=.o)
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
+# Rules
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cpp ScalarConverter.hpp
-	$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
@@ -33,3 +32,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re

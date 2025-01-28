@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   Derived.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 23:53:27 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/27 17:31:54 by mregrag          ###   ########.fr       */
+/*   Created: 2025/01/22 23:27:35 by mregrag           #+#    #+#             */
+/*   Updated: 2025/01/22 23:27:43 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-template <typename T>
-void iter(T *array, int length, void (*func)(T &))
-{
-    if (!array || !func)
-	return;
-    for (int i = 0; i < length; ++i)
-	func(array[i]);
-}
+
+#ifndef DERIVED_HPP
+#define DERIVED_HPP
+
+#include "Base.hpp"
+
+class A : public Base {};
+class B : public Base {};
+class C : public Base {};
+
+#endif
+
