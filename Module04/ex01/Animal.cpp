@@ -6,11 +6,12 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 16:51:59 by mregrag           #+#    #+#             */
-/*   Updated: 2024/12/14 14:17:17 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/12/13 15:15:07 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
+
 
 Animal::Animal() : type("Animal")
 {

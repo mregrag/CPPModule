@@ -6,11 +6,10 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:05:54 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/18 21:39:44 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/20 15:51:42 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// main.cpp
 #include "Intern.hpp"
 #include "Bureaucrat.hpp"
 #include <iostream>
@@ -19,13 +18,11 @@ int main()
 {
     try
     {
-        // Create intern and bureaucrat
-        Intern someRandomIntern;
-        Bureaucrat boss("Boss", 1);
+        Intern Intern;
+        Bureaucrat boss("Boss", 5);
 
-        // Test 1: Create and use RobotomyRequestForm
-        std::cout << "\n=== Test 1: RobotomyRequestForm ===" << std::endl;
-        AForm* rrf = someRandomIntern.makeForm("robotomy equest", "Bender");
+        std::cout << "========Test 1: RobotomyRequestForm==========" << std::endl;
+        AForm* rrf = Intern.makeForm("robotomy request", "Bender");
         if (rrf)
 	{
             boss.signForm(*rrf);
@@ -33,30 +30,30 @@ int main()
             delete (rrf);
         }
 
-        /*// Test 2: Create and use ShrubberyCreationForm*/
-        /*std::cout << "\n=== Test 2: ShrubberyCreationForm ===" << std::endl;*/
-        /*AForm* scf = someRandomIntern.makeForm("shrubbery creation", "Garden");*/
-        /*if (scf) {*/
-        /*    boss.signForm(*scf);*/
-        /*    boss.executeForm(*scf);*/
-        /*    delete scf;*/
-        /*}*/
-        /**/
-        /*// Test 3: Create and use PresidentialPardonForm*/
-        /*std::cout << "\n=== Test 3: PresidentialPardonForm ===" << std::endl;*/
-        /*AForm* ppf = someRandomIntern.makeForm("presidential pardon", "Criminal");*/
-        /*if (ppf) {*/
-        /*    boss.signForm(*ppf);*/
-        /*    boss.executeForm(*ppf);*/
-        /*    delete ppf;*/
-        /*}*/
-        /**/
-        /*// Test 4: Try to create non-existent form*/
-        /*std::cout << "\n=== Test 4: Invalid Form ===" << std::endl;*/
-        /*AForm* invalid = someRandomIntern.makeForm("invalid form", "Target");*/
-        /*if (invalid) {*/
-        /*    delete invalid;*/
-        /*}*/
+        std::cout << "========Test 2: ShrubberyCreationForm==========" << std::endl;
+        AForm* scf = Intern.makeForm("shrubbery creation", "Garden");
+        if (scf)
+	{
+            boss.signForm(*scf);
+            boss.executeForm(*scf);
+            delete scf;
+        }
+
+        std::cout << "========Test 3: PresidentialPardonForm==========" << std::endl;
+        AForm* ppf = Intern.makeForm("presidential pardon", "Criminal");
+        if (ppf)
+	{
+            boss.signForm(*ppf);
+            boss.executeForm(*ppf);
+            delete ppf;
+        }
+
+        std::cout << "========Test 4: Invalid Form==========" << std::endl;
+        AForm* invalid = Intern.makeForm("invalid form", "Target");
+        if (invalid) 
+	{
+            delete invalid;
+        }
 
     }
     catch (std::exception& e)
@@ -64,6 +61,5 @@ int main()
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    return 0;
+    return (0);
 }
-

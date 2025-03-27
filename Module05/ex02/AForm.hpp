@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:05:34 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/18 20:44:20 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/19 17:35:43 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 
 #include <string>
 #include <iostream>
-
-class Bureaucrat;
+#include "Bureaucrat.hpp"
+#include <fstream>
+#include <cstdlib>
 
 class AForm
 {

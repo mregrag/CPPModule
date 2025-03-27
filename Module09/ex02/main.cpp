@@ -6,13 +6,11 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 19:42:15 by mregrag           #+#    #+#             */
-/*   Updated: 2025/03/06 23:43:47 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/03/22 21:45:29 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-#include <iostream>
-#include <exception>
 
 
 int main(int argc, char **argv)
@@ -24,8 +22,8 @@ int main(int argc, char **argv)
 	}
 	try 
 	{
-		PmergeMe sorter(argc, argv);
-		sorter.sort_and_display();
+		PmergeMe sort(argc, argv);
+		sort.sortAndDisplay();
 	}
 	catch (const std::exception &e)
 	{

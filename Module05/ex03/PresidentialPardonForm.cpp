@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:08:22 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/18 21:30:15 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/20 16:00:53 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,5 @@ PresidentialPardonForm::~PresidentialPardonForm()
 void PresidentialPardonForm::execute(const Bureaucrat& executor) const
 {
     checkExecutability(executor);
-    std::cout << target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+    std::cout << this->target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }

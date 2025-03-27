@@ -6,7 +6,7 @@
 #    By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/05 19:25:40 by mregrag           #+#    #+#              #
-#    Updated: 2025/01/17 15:45:07 by mregrag          ###   ########.fr        #
+#    Updated: 2024/10/24 02:04:11 by mregrag          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,6 @@ $(NAME): $(OBJS)
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
-debug:
-	gdb ./test
 clean:
 	$(RM) $(OBJS)
 

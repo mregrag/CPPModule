@@ -6,7 +6,7 @@
 #    By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/30 23:52:41 by mregrag           #+#    #+#              #
-#    Updated: 2025/01/08 21:46:30 by mregrag          ###   ########.fr        #
+#    Updated: 2025/02/13 17:45:49 by mregrag          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,7 @@ all: $(NAME)
 $(NAME): $(SRCS)
 	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
 
-
-symbols: $(NAME)
-	nm -C $(NAME) | grep "swap"
-
-%.o: %.cpp
+%.o: %.cpp iter.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
@@ -34,4 +30,3 @@ clean:
 fclean: clean
 
 re: fclean all
-

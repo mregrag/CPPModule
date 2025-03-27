@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:07:44 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/18 21:30:59 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/20 16:01:14 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
     this->checkExecutability(executor);
-    std::string filename = target + "_shrubbery";
+    std::string filename = this->target + "_shrubbery";
     std::ofstream outFile(filename.c_str());
     
     if (!outFile.is_open())

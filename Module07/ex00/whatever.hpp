@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 23:50:12 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/27 16:46:28 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/02/12 16:12:05 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ const T &min(const T &a, const T &b)
     return (b);
 }
 
-template <typename T>
-const T &max(const T &a, const T &b)
+template <typename T>const T &max(const T &a, const T &b)
 {
     if (a > b)
 	return (a);

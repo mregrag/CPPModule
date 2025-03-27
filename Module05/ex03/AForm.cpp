@@ -6,14 +6,14 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:05:17 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/18 21:42:39 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/20 16:00:21 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm() : name("Default AForm"), isSigned(false), gradeToSign(150), gradeToExecute(150)
+AForm::AForm() : name("default"), isSigned(false), gradeToSign(150), gradeToExecute(150)
 {
 }
 
@@ -77,17 +77,17 @@ void AForm::checkExecutability(const Bureaucrat& executor) const
 
 const char* AForm::GradeTooHighException::what() const throw()
 {
-    return ("AForm grade is too high!");
+    return ("grade is too high!");
 }
 
 const char* AForm::GradeTooLowException::what() const throw()
 {
-    return ("AForm grade is too low!");
+    return ("grade is too low!");
 }
 
 const char* AForm::FormNotSignedException::what() const throw()
 {
-    return ("AForm grade is not sign!");
+    return ("grade is not sign!");
 }
 
 

@@ -6,12 +6,12 @@
 #    By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/18 20:58:37 by mregrag           #+#    #+#              #
-#    Updated: 2024/11/26 18:50:57 by mregrag          ###   ########.fr        #
+#    Updated: 2024/11/27 19:59:47 by mregrag          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC     = c++
-CFLAGS =  -Wall -Wextra -Werror -std=c++98 -Wshadow -g
+CFLAGS =  -Wall -Wextra -Werror -std=c++98
 NAME   = scavtrap
 RM     = rm -f
 
@@ -23,7 +23,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cpp ClapTrap.hpp
+%.o: %.cpp ClapTrap.hpp ScavTrap.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

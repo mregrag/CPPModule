@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 23:02:24 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/22 23:08:54 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/02/08 16:39:33 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 
 #include <string>
 
-// Non-empty Data structure with data members
-struct Data
+struct  Data
 {
-    int id;
-    std::string name;
+	int a;
+	char b;
+	bool c;
+	std::string text;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 22:45:23 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/27 23:11:19 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/02/13 17:36:07 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,15 @@ Array<T>::Array() : _array(NULL), _size(0)
 template <typename T>
 Array<T>::Array(unsigned int n) : _size(n)
 {
-    this->_array = new T[this->_size]();
-    else
-	throw InvalidArraySizeException();
+    if (n == 0)
+	this->_array = NULL;
+    this->_array = new T[this->_size];
 }
 
 template <typename T>
 Array<T>::Array(const Array<T>& rhs) : _array(NULL), _size(0)
 {
     *this = rhs;
-}
-
-template <typename T>
-Array<T>::~Array() 
-{
-    if (this->_array)
-        delete[] this->_array;
 }
 
 template <typename T>
@@ -78,20 +71,18 @@ const T& Array<T>::operator[](unsigned int index) const
 }
 
 template <typename T>
+Array<T>::~Array() 
+{
+    if (this->_array)
+        delete[] this->_array;
+}
+
+template <typename T>
 unsigned int Array<T>::size() const
 {
     return (this->_size);
 }
 
-
-// Implement the `what()` method for InvalidArraySizeException
-template <typename T>
-const char* Array<T>::InvalidArraySizeException::what() const throw()
-{
-    return ("Invalid array size exception occurred.");
-}
-
-// Implement the `what()` method for OutOfBoundsException
 template <typename T>
 const char* Array<T>::OutOfBoundsException::what() const throw()
 {
@@ -99,4 +90,3 @@ const char* Array<T>::OutOfBoundsException::what() const throw()
 }
 
 #endif
-

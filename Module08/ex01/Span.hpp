@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 23:30:11 by mregrag           #+#    #+#             */
-/*   Updated: 2024/12/31 23:31:55 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/02/20 20:33:42 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,34 @@
 #define SPAN_HPP
 
 #include <vector>
-#include <algorithm>
 #include <stdexcept>
+#include <algorithm>
+#include <climits>
 
-class Span {
-private:
-    unsigned int _maxSize;
-    std::vector<int> _numbers;
+class Span
+{
+    private:
+	unsigned int capacity;
+	std::vector<int> numbers;
 
-public:
-    // Orthodox Canonical Form
-    Span();
-    Span(unsigned int N);
-    Span(const Span& other);
-    Span& operator=(const Span& other);
-    ~Span();
+    public:
+	Span();
+	Span(unsigned int N);
+	Span(const Span& rhs);
+	Span& operator=(const Span& rhs);
+	~Span();
 
-    // Member functions
-    void addNumber(int number);
-    unsigned int shortestSpan() const;
-    unsigned int longestSpan() const;
-    
-    // Template function to add range of numbers
-    template<typename Iterator>
-    void addRange(Iterator begin, Iterator end) {
-        unsigned int distance = std::distance(begin, end);
-        if (_numbers.size() + distance > _maxSize) {
-            throw std::runtime_error("Adding range would exceed maximum size");
-        }
-        _numbers.insert(_numbers.end(), begin, end);
-    }
+	void addNumber(int number);
+
+	template <typename Iter>
+	    void addRange(Iter start, Iter end)
+	    {
+		if (this->numbers.size() + std::distance(start, end) > this->capacity)
+		    throw std::runtime_error("Error: Not enough space to add all numbers");
+		this->numbers.insert(this->numbers.end(), start, end);
+	    }
+	unsigned int shortestSpan() const;
+	unsigned int longestSpan() const;
 };
 
 #endif
-

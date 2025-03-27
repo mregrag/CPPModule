@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:06:55 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/17 23:16:51 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/19 15:00:03 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 #include <iostream>
 #include <string>
 #include <exception>
-#include "AForm.hpp"
 
+class AForm;
 
 class Bureaucrat
 {

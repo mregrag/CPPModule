@@ -6,12 +6,12 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:29:12 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/18 21:19:48 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/19 16:19:52 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMY_REQUEST_FORM_HPP
-#define ROBOTOMY_REQUEST_FORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
 

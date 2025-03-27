@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 05:26:03 by mregrag           #+#    #+#             */
-/*   Updated: 2024/12/14 16:31:25 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/11/26 18:18:54 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : private ClapTrap
+class ScavTrap : public ClapTrap
 {
 	public:
 		ScavTrap();

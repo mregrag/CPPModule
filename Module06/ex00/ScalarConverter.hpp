@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 21:36:11 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/27 22:18:36 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/02/08 16:33:53 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,25 @@
 #include <iostream>
 #include <cstdlib>
 #include <climits>
-#include <cfloat>
-#include <cmath>
 #include <iomanip>
 
 class ScalarConverter
 {
     private:
 	ScalarConverter();
-	ScalarConverter(const ScalarConverter& rhs);
-	ScalarConverter& operator=(const ScalarConverter& rhs);
+	ScalarConverter(const ScalarConverter&);
+	ScalarConverter& operator=(const ScalarConverter&);
 
 	static bool isChar(const std::string& str);
 	static bool isInt(const std::string& str);
 	static bool isFloat(const std::string& str);
 	static bool isDouble(const std::string& str);
+	static bool isPseudoLiteral(const std::string& str);
 
-	static void convertFromChar(std::string str);
-	static void convertFromInt(std::string str);
-	static void convertFromFloat(std::string str);
-	static void convertFromDouble(std::string str);
+	static void convertFromChar(const std::string& str);
+	static void convertFromInt(const std::string& str);
+	static void convertFromFloat(const std::string& str);
+	static void convertFromDouble(const std::string& str);
 
     public:
 	~ScalarConverter();

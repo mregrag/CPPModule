@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:05:34 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/07 18:08:24 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/19 19:12:31 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ class AForm
 	void beSigned(const Bureaucrat& bureaucrat);
 	virtual void execute(Bureaucrat const& executor) const = 0;
 
-	// Exception classes
 	class GradeTooHighException : public std::exception {
 	    public:
 		virtual const char* what() const throw();

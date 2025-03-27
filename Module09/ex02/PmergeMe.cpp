@@ -6,13 +6,11 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 19:41:59 by mregrag           #+#    #+#             */
-/*   Updated: 2025/03/10 21:20:10 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/03/22 21:08:57 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-#include <cstddef>
-#include <stdexcept>
 
 PmergeMe::PmergeMe()
 {
@@ -32,7 +30,6 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &rhs)
 {
 	if (this != &rhs)
 	{
-		original = rhs.original;
 		_vector = rhs._vector;
 		_deque = rhs._deque;
 	}
@@ -58,42 +55,17 @@ void PmergeMe::parse_input(int argc, char **argv)
 	{
 		std::string arg = trim(std::string(argv[i]));
 
-		if (!arg.empty() && arg[0] == '+')
-			arg.erase(0, 1);
 		std::istringstream iss(arg);
 		long num;
 
 		if (!(iss >> num) || !iss.eof() || num < 0 || num > INT_MAX)
 			throw std::runtime_error("Error");
 
-		original.push_back(static_cast<int>(num));
+		_vector.push_back(static_cast<int>(num));
+		_deque.push_back(static_cast<int>(num));
 	}
-
-	_vector = original;
-	_deque.assign(original.begin(), original.end());
 }
 
-void PmergeMe::sort_and_display()
-{
-	std::cout << "Before: ";
-	print_sequence(original);
-
-	clock_t start = clock();
-	ford_johnson_sort_vector(_vector);
-	clock_t end = clock();
-	double vector_time = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000;
-
-	start = clock();
-	ford_johnson_sort_deque(_deque);
-	end = clock();
-	double deque_time = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000;
-
-	std::cout << "After: ";
-	print_sequence(_vector);
-
-	std::cout << "Time to process a range of " << _vector.size() << " elements with std::vector: " << vector_time << " us" << std::endl;
-	std::cout << "Time to process a range of " << _deque.size() << " elements with std::deque: " << deque_time << " us" << std::endl;
-}
 
 void PmergeMe::print_sequence(const std::vector<int> &seq)
 {
@@ -118,193 +90,149 @@ void PmergeMe::binary_insert(std::deque<int> &arr, int value)
 	arr.insert(pos, value);
 }
 
-void PmergeMe::merge_pairs(std::vector<ElementPair> &pairs, int left, int mid, int right)
+void PmergeMe::sortAndDisplay()
 {
-	std::vector<ElementPair> temp;
-	int i = left, j = mid + 1;
+	std::cout << "Before: ";
+	print_sequence(_vector);
 
-	while (i <= mid && j <= right)
-	{
-		if (pairs[i].first <= pairs[j].first)
-			temp.push_back(pairs[i++]);
-		else
-			temp.push_back(pairs[j++]);
-	}
+	clock_t start = clock();
+	sortVector();
+	clock_t end = clock();
+	double vector_time = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000;
 
-	while (i <= mid)
-		temp.push_back(pairs[i++]);
+	start = clock();
+	sortDeque();
+	end = clock();
+	double deque_time = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000;
 
-	while (j <= right)
-		temp.push_back(pairs[j++]);
+	std::cout << "After: ";
+	print_sequence(_vector);
 
-	for (size_t k = 0; k < temp.size(); ++k)
-		pairs[left + k] = temp[k];
+	std::cout << "Time to process a range of " << _vector.size() << " elements with std::vector: " << vector_time << " us" << std::endl;
+	std::cout << "Time to process a range of " << _deque.size() << " elements with std::deque: " << deque_time << " us" << std::endl;
 }
 
-void PmergeMe::recursive_sort(std::vector<ElementPair> &pairs, int left, int right)
+std::vector<size_t> PmergeMe::generateInsertionOrder(size_t m)
 {
-	if (left >= right)
+	std::vector<size_t> order;
+
+	if (m == 0)
+		return order;
+	// Jacobsthal sequence t_k = (2^(k+1) + (-1)^k) / 3
+	std::vector<size_t> t;
+	t.push_back(1); 
+	t.push_back(1);
+	while (true)
+	{
+		size_t k = t.size();
+		size_t next_t = ((1 << (k + 1)) + ((k % 2 == 0) ? 1 : -1)) / 3;
+		if (next_t > m)
+			break;
+		t.push_back(next_t);
+	}
+	std::vector<bool> used(m, false);
+	for (size_t i = t.size() - 1; i > 0; --i)  
+		for (size_t j = t[i]; j > t[i - 1]; --j)
+		{
+			if (j - 1 < m && !used[j - 1])
+			{
+				order.push_back(j - 1);
+				used[j - 1] = true;
+			}
+		}
+	for (size_t j = 0; j < m; ++j)
+		if (!used[j])
+			order.push_back(j);
+	return (order);
+}
+
+void PmergeMe::sortVector()
+{
+	if (_vector.size() <= 1)
 		return;
 
-	int mid = left + (right - left) / 2;
-	recursive_sort(pairs, left, mid);
-	recursive_sort(pairs, mid + 1, right);
+	bool has_odd_element = (_vector.size() % 2 != 0);
+	int odd_element = has_odd_element ? _vector.back() : 0;
 
-	merge_pairs(pairs, left, mid, right);
-}
-
-
-std::vector<int> PmergeMe::generateJacobsthalNumbers(int n)
-{
-	std::vector<int> jacobsthal;
-	jacobsthal.push_back(0); // J(0) = 0 (not used in algorithm)
-	jacobsthal.push_back(1); // J(1) = 1
-
-	int i = 2;
-	while (jacobsthal.back() < n)
-	{
-		// J(n) = J(n-1) + 2*J(n-2)
-		int next = jacobsthal[i-1] + 2 * jacobsthal[i-2];
-		jacobsthal.push_back(next);
-		i++;
-	}
-
-	return (jacobsthal);
-}
-
-// Generate insertion sequence based on Jacobsthal numbers
-std::vector<int> PmergeMe::generateInsertionSequence(int n)
-{
-	// Get Jacobsthal numbers
-	std::vector<int> jacobsthal = generateJacobsthalNumbers(n);
-
-	// Create the insertion sequence
-	std::vector<int> sequence;
-
-	// Start with inserting element at index 1 (second element)
-	sequence.push_back(1);
-
-	// For each Jacobsthal number, add it and then add all elements between
-	// it and the previous Jacobsthal number in reverse order
-	for (size_t i = 2; i < jacobsthal.size() && jacobsthal[i] <= n; i++)
-	{
-		sequence.push_back(jacobsthal[i]);
-
-		// Add elements between current and previous Jacobsthal number in reverse
-		for (int j = jacobsthal[i] - 1; j > jacobsthal[i-1]; j--)
-			if (j <= n)
-				sequence.push_back(j);
-	}
-
-	// Add any remaining elements in reverse order
-	for (int i = n; i > jacobsthal[jacobsthal.size()-1]; i--)
-		sequence.push_back(i);
-	return (sequence);
-}
-// Ford-Johnson sort with proper Jacobsthal sequence
-void PmergeMe::ford_johnson_sort_vector(std::vector<int> &arr)
-{
-	if (arr.size() <= 1)
-		return;
-
-	// Step 1: Form pairs and find larger/smaller elements
-	std::vector<ElementPair> pairs;
-	bool has_odd_element = (arr.size() % 2 != 0);
-	int odd_element = has_odd_element ? arr.back() : 0;
-
-	for (size_t i = 0; i < (has_odd_element ? arr.size() - 1 : arr.size()); i += 2)
-	{
-		if (arr[i] > arr[i + 1])
-			pairs.push_back(std::make_pair(arr[i], arr[i + 1]));
-		else
-			pairs.push_back(std::make_pair(arr[i + 1], arr[i]));
-	}
-
-	// Step 2: Sort the larger elements recursively
-	recursive_sort(pairs, 0, pairs.size() - 1);
-
-	// Step 3: Set up main chain and pending elements
-	std::vector<int> main_chain;
-	std::vector<int> pending;
-
-	// Add all larger elements to main chain
-	for (size_t i = 0; i < pairs.size(); ++i) {
-		main_chain.push_back(pairs[i].first);
-		pending.push_back(pairs[i].second);
-	}
-
-	// Step 4: Insert pending elements using Jacobsthal sequence
-	if (!pending.empty())
-	{
-		// Insert first pending element (index 0)
-		binary_insert(main_chain, pending[0]);
-
-		// Generate insertion sequence for remaining elements
-		std::vector<int> insertion_sequence = generateInsertionSequence(pending.size() - 1);
-
-		// Insert remaining elements according to sequence
-		for (size_t i = 0; i < insertion_sequence.size(); ++i)
-			if (insertion_sequence[i] < (int)pending.size())
-				binary_insert(main_chain, pending[insertion_sequence[i]]);
-	}
-
-	// Insert odd element if present
 	if (has_odd_element)
-		binary_insert(main_chain, odd_element);
-	arr = main_chain;
-}
+		_vector.pop_back();
 
-// Deque implementation follows the same approach
-void PmergeMe::ford_johnson_sort_deque(std::deque<int> &arr)
-{
-	if (arr.size() <= 1)
-		return;
+	std::vector<std::pair<int, int> > pairs;
+	for (size_t i = 0; i < _vector.size(); i += 2)
+		pairs.push_back(std::make_pair(std::max(_vector[i], _vector[i + 1]), std::min(_vector[i], _vector[i + 1])));
 
-	// Step 1: Form pairs and find larger/smaller elements
-	std::vector<ElementPair> pairs;
-	bool has_odd_element = (arr.size() % 2 != 0);
-	int odd_element = has_odd_element ? arr.back() : 0;
-
-	for (size_t i = 0; i < (has_odd_element ? arr.size() - 1 : arr.size()); i += 2)
-	{
-		if (arr[i] > arr[i + 1])
-			pairs.push_back(std::make_pair(arr[i], arr[i + 1]));
-		else
-			pairs.push_back(std::make_pair(arr[i + 1], arr[i]));
-	}
-
-	// Step 2: Sort the larger elements recursively
-	recursive_sort(pairs, 0, pairs.size() - 1);
-
-	// Step 3: Set up main chain and pending elements
-	std::deque<int> main_chain;
-	std::vector<int> pending;
-
-	// Add all larger elements to main chain
+	std::vector<int> larger_elements;
 	for (size_t i = 0; i < pairs.size(); ++i)
-	{
-		main_chain.push_back(pairs[i].first);
+		larger_elements.push_back(pairs[i].first);
+
+	_vector = larger_elements; 
+	sortVector();
+	std::vector<int> main = _vector;
+
+	std::vector<int> pending;
+	for (size_t i = 0; i < pairs.size(); ++i)
 		pending.push_back(pairs[i].second);
-	}
 
-	// Step 4: Insert pending elements using Jacobsthal sequence
 	if (!pending.empty())
+		binary_insert(main, pending[0]); 
+
+	if (pending.size() > 1)
 	{
-		// Insert first pending element (index 0)
-		binary_insert(main_chain, pending[0]);
-
-		// Generate insertion sequence for remaining elements
-		std::vector<int> insertion_sequence = generateInsertionSequence(pending.size() - 1);
-
-		// Insert remaining elements according to sequence
+		std::vector<size_t> insertion_sequence = generateInsertionOrder(pending.size());
 		for (size_t i = 0; i < insertion_sequence.size(); ++i)
-			if (insertion_sequence[i] < (int)pending.size())
-				binary_insert(main_chain, pending[insertion_sequence[i]]);
+		{
+			int idx = insertion_sequence[i];
+			if (idx > 0 && idx < (int)pending.size())
+				binary_insert(main, pending[idx]);
+		}
 	}
-
-	// Insert odd element if present
 	if (has_odd_element)
-		binary_insert(main_chain, odd_element);
-	arr = main_chain;
+		binary_insert(main, odd_element);
+	_vector = main;
 }
 
+void PmergeMe::sortDeque()
+{
+	if (_deque.size() <= 1)
+		return;
+
+	bool has_odd_element = (_deque.size() % 2 != 0);
+	int odd_element = has_odd_element ? _deque.back() : 0;
+
+	if (has_odd_element)
+		_deque.pop_back();
+
+	std::vector<std::pair<int, int> > pairs;
+	for (size_t i = 0; i < _deque.size(); i += 2)
+		pairs.push_back(std::make_pair(std::max(_deque[i], _deque[i + 1]), std::min(_deque[i], _deque[i + 1])));
+
+	std::deque<int> larger_elements;
+	for (size_t i = 0; i < pairs.size(); ++i)
+		larger_elements.push_back(pairs[i].first);
+
+	_deque = larger_elements;
+	sortDeque();
+	std::deque<int> main = _deque;
+
+	std::vector<int> pending;
+	for (size_t i = 0; i < pairs.size(); ++i)
+		pending.push_back(pairs[i].second);
+
+	if (!pending.empty())
+		binary_insert(main, pending[0]); 
+
+	if (pending.size() > 1)
+	{
+		std::vector<size_t> insertion_sequence = generateInsertionOrder(pending.size());
+
+		for (size_t i = 0; i < insertion_sequence.size(); ++i)
+		{
+			int idx = insertion_sequence[i];
+			if (idx < (int)pending.size())
+				binary_insert(main, pending[idx]);
+		}
+		if (has_odd_element)
+			binary_insert(main, odd_element);
+	}
+	_deque = main;
+}

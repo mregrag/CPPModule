@@ -6,20 +6,19 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 14:23:56 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/20 19:27:46 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/20 14:14:37 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include <exception>
 
-int main()
+int main(void)
 {
-    Bureaucrat bob("Bob", 1);
-    std::cout << bob << std::endl;
-
     try 
     {
-	Bureaucrat john("John", 151);
+	Bureaucrat John("John", 150);
+	std::cout << John << std::endl;
     } 
     catch (std::exception& e) 
     {
@@ -27,9 +26,10 @@ int main()
     }
     try
     {
-	Bureaucrat john("John", 0);
+	Bureaucrat bob("bob", 1);
+	std::cout << bob << std::endl;
     }
-    
+
     catch (std::exception& e) 
     {
 	std::cout << "Error: " << e.what() << std::endl;
@@ -37,4 +37,3 @@ int main()
 
     return (0);
 }
-

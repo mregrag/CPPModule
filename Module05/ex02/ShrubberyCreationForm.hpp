@@ -6,15 +6,14 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:07:57 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/18 21:20:16 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/19 17:35:08 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERY_CREATION_FORM_HPP
-#define SHRUBBERY_CREATION_FORM_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+#define SHRUBBERYCREATIONFORM_HPP
 
 #include "AForm.hpp"
-#include <fstream>
 
 class ShrubberyCreationForm : public AForm
 {

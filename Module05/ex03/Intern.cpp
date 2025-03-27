@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:17:53 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/18 21:34:28 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/19 19:43:51 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target)
     AForm* (Intern::*creator[3])(const std::string&) const = {
 	&Intern::makeShrubberyForm,
 	&Intern::makeRobotomyForm,
-	&Intern::makePresidentialPardonForm};
+	&Intern::makePresidentialPardonForm
+    };
 
     for (int i = 0; i < 3 ; i++)
     {

@@ -6,12 +6,12 @@
 #    By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/26 14:47:52 by mregrag           #+#    #+#              #
-#    Updated: 2024/10/29 14:25:53 by mregrag          ###   ########.fr        #
+#    Updated: 2024/10/31 15:11:24 by mregrag          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC	= c++
-CFLAGS	= -Wall -Wextra -Werror -std=c++98 -g
+CFLAGS	= -Wall -Wextra -Werror -std=c++98
 NAME	= brainz
 RM 	= rm -f
 

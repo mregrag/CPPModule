@@ -6,16 +6,14 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 22:55:57 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/24 18:06:19 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/02/08 16:49:02 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef SERIALIZER_HPP
 #define SERIALIZER_HPP
 
-/*#include <cstdint> // For uintptr_t*/
-#include <stdint.h> // For uintptr_t
+#include <stdint.h>
 #include "Data.hpp"
 
 class Serializer

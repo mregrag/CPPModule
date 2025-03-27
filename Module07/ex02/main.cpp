@@ -6,59 +6,91 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 23:55:50 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/27 23:10:22 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/02/13 17:51:09 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <exception>
 #include <iostream>
 #include "Array.hpp"
 
-int main(void) 
+class Person
 {
-    try {
-        // Test 1: Default constructor (empty array)
-        Array<int> arr1;
-        std::cout << "arr1 size: " << arr1.size() << std::endl;
+    private:
+	std::string name;
+	int age;
 
-        // Test 2: Constructor with size
-	
-        Array<int> arr2(-5);
-        std::cout << "arr2 size: " << arr2.size() << std::endl;
-        for (unsigned int i = 0; i < arr2.size(); ++i) {
-            std::cout << "arr2[" << i << "] = " << arr2[i] << std::endl;
-        }
+    public:
+	Person() : name("Unknown"), age(0) {}
 
-        // Test 3: Copy constructor
-        Array<int> arr3(arr2);
-        std::cout << "arr3 size (after copy): " << arr3.size() << std::endl;
+	Person(const std::string& name, int age) : name(name), age(age) {}
 
-        // Test 4: Assignment operator
-        Array<int> arr4 = arr2;
-        std::cout << "arr4 size (after assignment): " << arr4.size() << std::endl;
+	Person(const Person& rhs) : name(rhs.name), age(rhs.age) {}
 
-        // Test 5: Modifying arr2 does not affect arr3 or arr4
-        arr2[0] = 99;
-        std::cout << "arr2[0] after modification: " << arr2[0] << std::endl;
-        std::cout << "arr3[0] (should remain same): " << arr3[0] << std::endl;
-        std::cout << "arr4[0] (should remain same): " << arr4[0] << std::endl;
+	Person& operator=(const Person& rhs)
+	{
+	    if (this != &rhs)
+	    {
+		name = rhs.name;
+		age = rhs.age;
+	    }
+	    return (*this);
+	}
+	~Person() {}
+	std::string getName() const { return name; }
+	int getAge() const { return age; }
 
-        // Test 6: Bounds checking
-        try {
-            std::cout << "arr2[10]: " << arr2[10] << std::endl; // This will throw
-        } catch (const std::exception& e) {
-            std::cout << "Exception caught: " << e.what() << std::endl;
-        }
+};
 
-        // Test 7: Assigning to an empty array
-        Array<int> arr5(0);
-        std::cout << "arr5 size: " << arr5.size() << std::endl;
-        
+std::ostream& operator<<(std::ostream& lhs, const Person& person)
+{
+    lhs << "Person(Name: " << person.getName() << ", Age: " << person.getAge() << ")";
+    return (lhs);
+}
+
+int main(void)
+{
+    try
+    {
+	Array<int> intArray(3);
+	intArray[0] = 10;
+	intArray[1] = 20;
+	intArray[2] = 30;
+
+	std::cout << "intArray: ";
+	for (unsigned int i = 0; i < intArray.size(); ++i)
+	    std::cout << intArray[i] << " ";
+	std::cout << std::endl;
+
+	Array<Person> personArray(2);
+	std::cout << personArray[0] << std::endl;
+	std::cout << personArray[1] << std::endl;
+	personArray[0] = Person("mohamed", 25);
+	personArray[1] = Person("yasin", 28);
+
+	std::cout << "personArray: ";
+	for (unsigned int i = 0; i < personArray.size(); ++i)
+	    std::cout << personArray[i] << " ";
+	std::cout << std::endl;
+
+	Array<Person> copiedPersonArray(personArray);
+	std::cout << "copiedPersonArray: ";
+	for (unsigned int i = 0; i < copiedPersonArray.size(); ++i)
+	    std::cout << copiedPersonArray[i] << " ";
+	std::cout << std::endl;
+
+	Array<Person> assignedPersonArray;
+	assignedPersonArray = personArray;
+	std::cout << "assignedPersonArray: ";
+	for (unsigned int i = 0; i < assignedPersonArray.size(); ++i)
+	    std::cout << assignedPersonArray[i] << " ";
+	std::cout << std::endl;
+
     }
     catch (const std::exception& e)
     {
-        std::cerr << "Exception caught: " << e.what() << std::endl;
+	std::cout << e.what() << std::endl;
     }
 
-    return 0;
+    return (0);
 }
-

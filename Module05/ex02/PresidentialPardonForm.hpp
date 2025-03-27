@@ -6,12 +6,12 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:08:33 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/18 21:22:11 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/19 16:19:29 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIAL_PARDON_FORM_HPP
-#define PRESIDENTIAL_PARDON_FORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+#define PRESIDENTIALPARDONFORM_HPP
 
 #include "AForm.hpp"
 

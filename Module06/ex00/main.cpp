@@ -6,12 +6,11 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 21:34:04 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/22 20:40:22 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/02/08 16:17:31 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-#include <iostream>
 
 int main(int argc, char* argv[])
 {

@@ -6,37 +6,29 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 22:56:07 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/24 18:21:10 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/02/08 16:40:27 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include <iostream>
-#include "Data.hpp"
 #include "Serializer.hpp"
 
 int main(void)
 {
-    Data *data = new Data();
-    data->id = 42;
-    data->name = "Test Object";
+    Data original = {42, 'A', true, "Hello World"};
 
-    uintptr_t raw = Serializer::serialize(data);
-    std::cout << "Serialized uintptr_t: " << raw << std::endl;
+    uintptr_t serialized = Serializer::serialize(&original);
 
-    Data* deserializedData = Serializer::deserialize(raw);
-    std::cout << "deserialize = " << deserializedData << std::endl;
-    std::cout << "&data = " << &data << std::endl;
+    Data* deserialized = Serializer::deserialize(serialized);
 
-    if (deserializedData == data)
-    {
-        std::cout << "Deserialization successful!" << std::endl;
-        std::cout << "Data ID: " << deserializedData->id << std::endl;
-        std::cout << "Data Name: " << deserializedData->name << std::endl;
-    }
-    else
-        std::cout << "Deserialization failed." << std::endl;
+    std::cout << "Original pointer:   " << &original << std::endl;
+    std::cout << "Serialized value:   " << serialized << std::endl;
+    std::cout << "Deserialized pointer: " << deserialized << std::endl;
+
+    std::cout << deserialized->a << std::endl;
+    std::cout << deserialized->b << std::endl;
+    std::cout << deserialized->c << std::endl;
+    std::cout << deserialized->text << std::endl;
 
     return (0);
 }
-

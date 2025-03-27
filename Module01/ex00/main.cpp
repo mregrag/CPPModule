@@ -6,7 +6,7 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 14:48:59 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/21 18:02:06 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/10/31 11:06:36 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,6 @@ int	main(void)
 
 	randomChump("stack_zombie");
 
-	{
-		Zombie ob = Zombie("mohamed");
-		ob.announce();
-	}
 	delete heap_zombie;
 	return (0);
 }

@@ -6,12 +6,11 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 05:24:40 by mregrag           #+#    #+#             */
-/*   Updated: 2024/12/14 16:37:14 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/11/27 19:57:12 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
-#include <iostream>
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
@@ -62,4 +61,3 @@ void ScavTrap::guardGate()
 {
 	std::cout << "[ScavTrap]   " << this->name << " is now in Gate keeper mode" << std::endl;
 }
-

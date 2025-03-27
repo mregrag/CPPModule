@@ -6,13 +6,13 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:24:18 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/18 20:31:37 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/20 15:59:24 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Form::Form() : name("Default"), isSigned(false), gradeToSign(150), gradeToExecute(150)
+Form::Form() : name("default"), isSigned(false), gradeToSign(150), gradeToExecute(150)
 {
 }
 

@@ -6,13 +6,13 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 14:23:23 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/18 20:11:44 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/20 15:58:58 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : name("Default"), grade(150)
+Bureaucrat::Bureaucrat() : name("default"), grade(150)
 {
 }
 

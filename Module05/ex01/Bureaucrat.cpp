@@ -6,13 +6,17 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 19:29:18 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/18 20:37:42 by mregrag          ###   ########.fr       */
+/*   Updated: 2025/01/20 15:59:15 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : name("Bureaucrat"), grade(150)
+Bureaucrat::Bureaucrat() : name("default"), grade(150)
+{
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat& rhs) : name(rhs.name), grade(rhs.grade)
 {
 }
 
@@ -24,9 +28,6 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade) : name(name), grade(g
 	throw GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& rhs) : name(rhs.name), grade(rhs.grade)
-{
-}
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs)
 {
     if (this != &rhs)

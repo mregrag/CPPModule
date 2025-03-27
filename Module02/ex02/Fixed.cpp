@@ -6,12 +6,11 @@
 /*   By: mregrag <mregrag@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 16:41:27 by mregrag           #+#    #+#             */
-/*   Updated: 2025/01/08 23:22:38 by mregrag          ###   ########.fr       */
+/*   Updated: 2024/11/18 23:01:30 by mregrag          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-#include <cmath>
 
 Fixed::Fixed() : raw(0)
 {
